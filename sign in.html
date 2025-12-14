@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Sign in</title>
+    <style>
+        body {
+            font-size: 20px;
+            background-image: url('something.jpg');
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            font-family: "Caslon Opnface BT", serif;
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            display: inline-block;
+        }
+
+        .form-group input:hover,
+        .form-group input:focus {
+            border: 2px solid yellow;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .sign-in {
+            padding: 15px 30px;
+            background-color: #aa0918;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .form-box {
+            min-height: 470px;
+            width: 430px;
+            border: 10px solid white;
+            border-radius: 10px;
+            align-items: center;
+            margin: 0 auto;
+            background: white;
+            justify-content: center; 
+        }
+    </style>
+</head>
+
+<body>
+    <!--<style>
+       nav a {
+            color: #ff0000; /* Red color */
+            text-decoration: none; /* Remove underline */
+            padding: 10px 15px;
+            margin: 0 5px;
+        }
+	</style>
+			-->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/profile">Profile</a>
+    </nav>
+    <h1>SIGN IN</h1>
+    <div class="form-box">
+        <div>
+            <form>
+                <div class="form-group">
+                    <p>First name:</p>
+                    <input type="text" placeholder="First Name" hspace=10px />
+                </div>
+                <p>Last name:</p>
+                <input type="text" placeholder="Enter Last Name" hspace=10px />
+
+                <p>Email address</p>
+                <input type="email" placeholder="you@example.com" hspace=10px />
+
+                <p>Password:</p>
+                <input type="Password" placeholder="Enter Password" hspace=10px />
+
+                <!-- <p>Confirm Password:</p>
+		<input type="Password"
+		value="Password"
+		placeholder="Confirm Password"
+		hspace=10px/>
+		-->
+
+                <p>Gender:</p>
+                <div class="text-left" style="margin-left: 50px;">
+                    <input type="radio" name="gender" />Male<br>
+                    <input type="radio" name="gender" />Female<br>
+                    <input type="radio" name="gender" />Other<br>
+                </div>
+
+                <div style="text-align:  center; margin-top: 20px;">
+                    <button type="submit" class="sign-in">
+                        Sign In
+                    </button>
+                </div>
+
+            </form>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

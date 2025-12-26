@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<head>
+<head> 
     <title>Sign in</title>
     <style>
         body {
             font-size: 20px;
             background-image: url('something.jpg');
+            font-family:'Times New Roman', Times, serif;
+            background-size: cover
         }
 
         h1 {
             font-size: 24px;
             text-align: center;
-            font-family: "Caslon Opnface BT", serif;
             color: white;
         }
 
@@ -25,12 +26,24 @@
 
         .form-group input:hover,
         .form-group input:focus {
-            border: 2px solid yellow;
+            border: 2px solid #FF9100;;
         }
-
-        .text-left {
-            text-align: left;
+        
+        .form-group input {
+            padding: 15px;
+            width: 70%;
+            height: 30%;
+            font-size: 15px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
+        /* .form-group p { color: #aa0918 ; } */
+        .form-group p { color: #FF9100 ; }
+        .text-center {
+            text-align: center;
+        }
+        
 
         .sign-in {
             padding: 15px 30px;
@@ -39,11 +52,12 @@
             border: none;
             border-radius: 3px;
             cursor: pointer;
+
         }
 
         .form-box {
             min-height: 470px;
-            width: 430px;
+            width: 450px;
             border: 10px solid white;
             border-radius: 10px;
             align-items: center;
@@ -55,50 +69,40 @@
 </head>
 
 <body>
-    <!--<style>
-       nav a {
-            color: #ff0000; /* Red color */
-            text-decoration: none; /* Remove underline */
-            padding: 10px 15px;
-            margin: 0 5px;
-        }
-	</style>
-			-->
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
         <a href="/profile">Profile</a>
     </nav>
-    <h1>SIGN IN</h1>
+    <h1>Crafting moments that last a lifetime.</h1>
     <div class="form-box">
         <div>
             <form>
+                <div style="text-align: center; margin-top: 20px; color: #FF9100;">
+                    <h2>Create your account</h2>
                 <div class="form-group">
                     <p>First name:</p>
-                    <input type="text" placeholder="First Name" hspace=10px />
+                    <input type="text" placeholder=" Enter First Name" hspace=10px />
                 </div>
+                <div class="form-group">
                 <p>Last name:</p>
                 <input type="text" placeholder="Enter Last Name" hspace=10px />
-
+                </div>
+                
+                <div class="form-group">
                 <p>Email address</p>
                 <input type="email" placeholder="you@example.com" hspace=10px />
+                </div>
 
+                <div class="form-group">
                 <p>Password:</p>
                 <input type="Password" placeholder="Enter Password" hspace=10px />
 
-                <!-- <p>Confirm Password:</p>
+                <p>Confirm Password:</p>
 		<input type="Password"
-		value="Password"
 		placeholder="Confirm Password"
 		hspace=10px/>
-		-->
-
-                <p>Gender:</p>
-                <div class="text-left" style="margin-left: 50px;">
-                    <input type="radio" name="gender" />Male<br>
-                    <input type="radio" name="gender" />Female<br>
-                    <input type="radio" name="gender" />Other<br>
                 </div>
 
                 <div style="text-align:  center; margin-top: 20px;">

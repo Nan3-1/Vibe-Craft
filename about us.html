@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | Moments</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: white; 
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION - Shared with Main Page */
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            padding: 20px 5%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #D35400;
+        }
+
+        /* HERO SECTION - Reverse Split (Text on Left, Image on Right) */
+        .about-hero {
+            display: flex;
+            height: 70vh;
+            align-items: center;
+            background: #fff;
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 0 8%;
+        }
+
+        .about-text h1 {
+            font-size: 50px;
+            color: #D35400; /* Using the Orange from your photo */
+            margin-bottom: 10px;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 100%;
+            background-image: url(''); 
+            background-size: cover;
+            background-position: center;
+            /* Added a subtle filter to match the vibe */
+            filter: saturate(1.2) contrast(1.1);
+        }
+
+        /* THE TEAM / VALUES - Box Grid matching Main Page */
+        .values-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-box {
+            background: white;
+            border: 5px solid #D35400; /* Orange accent border */
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .value-box h3 {
+            color: #D35400;
+            font-size: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #D35400;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="main page.html">Home</a>
+        <a href="about us.html">About</a>
+        <a href="#">Contact</a>
+        <a href="sign in.html">Profile</a>
+    </nav>
+
+    <section class="about-hero">
+        <div class="about-text">
+            <h1>Our Story</h1>
+            <p>At <strong>Moments</strong>, we believe every celebration tells a story. Based on your unique vision, we bring together the colors, the atmosphere, and the details that make your event truly yours.</p>
+        </div>
+        <div class="about-image"></div>
+    </section>
+
+    <section class="mission-section">
+        <h2>The Vision</h2>
+        <p style="font-size: 24px; font-style: italic;">"To transform ordinary spaces into extraordinary memories."</p>
+        <p>Whether it’s the vibrant glow of a birthday or the elegant deep tones of a wedding, our palettes are inspired by life’s most beautiful moments.</p>
+    </section>
+
+    <section class="values-section">
+        <h2>Why Choose Us?</h2>
+        <div class="values-grid">
+            <div class="value-box">
+                <h3>Vibrant Planning</h3>
+                <p>We use bold colors and creative designs to ensure your party stands out from the rest.</p>
+            </div>
+            <div class="value-box">
+                <h3>Reliable Coordination</h3>
+                <p>Our team handles the logistics so you can focus on being present in the moment.</p>
+            </div>
+            <div class="value-box">
+                <h3>Custom Templates</h3>
+                <p>Access our library of ready-to-use planners for any occasion, from corporate to casual.</p>
+            </div>
+        </div>
+        <br><br>
+        <a href="sign in.html" class="cta-button">Start Planning with Us</a>
+    </section>
+</body>
+</html>

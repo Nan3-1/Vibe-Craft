@@ -1,68 +1,130 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head> 
-    <title>Sign in</title>
+    <meta charset="UTF-8">
+    <title>Sign in | Moments</title>
     <style>
         body {
             font-size: 20px;
-            background-image: url('something.jpg');
-            font-family:'Times New Roman', Times, serif;
-            background-size: cover
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Clean white background */
+            overflow-x: hidden;
         }
 
-        h1 {
-            font-size: 24px;
-            text-align: center;
-            color: white;
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            padding: 20px 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
         }
 
         nav a {
-            color: white;
+            color: #333;
             text-decoration: none;
             padding: 10px 15px;
             margin: 0 5px;
             display: inline-block;
         }
-    
+
+        nav a:hover {
+            color: #D35400;
+        }
+
+        /* SPLIT SCREEN CONTAINER */
+        .split-container {
+            display: flex;
+            height: 90vh; /* Adjusts height to fit screen */
+            align-items: center;
+        }
+
+        /* LEFT SIDE: PHOTO */
+        .left-image {
+            flex: 1;
+            height: 100%;
+            background-image: url('events people.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* RIGHT SIDE: FORM */
+        .right-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        /* FORM STYLING */
+        .form-group p { 
+            color: #D35400; 
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
         .form-group input:hover,
         .form-group input:focus {
-            border: 2px solid #0044FF;
+            border: 2px solid #D35400; 
         }
 
         .form-group input {
-            padding: 15px;
-            width: 70%;
-            height: 30%;
+            padding: 12px;
+            width: 90%;
             font-size: 15px;
             border: 2px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            margin-bottom: 15px;
         }
-        /* .form-group p { color: #aa0918 ; } */
-        .form-group p { color: #0044FF ; }
-        .text-center {
-            text-align: center;
+
+        .form-group input:focus {
+            border: 2px solid #D35400;
+            outline: none;
         }
-        
-        .sign-in {
-            padding: 15px 30px;
-            background-color: #0044FF;
+
+        .sign-in-btn {
+            padding: 15px 40px;
+            background-color: #D35400;
             color: white;
             border: none;
             border-radius: 3px;
             cursor: pointer;
-
+            font-size: 18px;
+            transition: 0.3s;
         }
 
-        .form-box {
-            min-height: 470px;
-            width: 450px;
-            border: 10px solid white;
-            border-radius: 10px;
-            align-items: center;
-            margin: 0 auto;
-            background: white;
-            justify-content: center; 
+        .sign-in-btn:hover {
+            background-color: #D35400;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .login-link:hover {
+            color: #D35400;
         }
     </style>
 </head>
@@ -70,52 +132,50 @@
 <body>
     <nav>
         <a href="main page.html">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/profile">Profile</a>
+        <a href="about us.html">About us</a>
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact</a>  
     </nav>
-    <h1>Crafting moments that last a lifetime.</h1>
-    <div class="form-box">
-        <div>
-            <form>
-                <div style="text-align: center; margin-top: 20px; color: #0044FF">
-                    <h2>Create your account</h2>
-                <div class="form-group">
-                    <p>First name:</p>
-                    <input type="text" placeholder=" Enter First Name" hspace=10px />
-                </div>
-                <div class="form-group">
-                <p>Last name:</p>
-                <input type="text" placeholder="Enter Last Name" hspace=10px />
-                </div>
+
+    <div class="split-container">
+        <div class="left-image"></div>
+
+        <div class="right-form">
+            <h1>Crafting moments that last a lifetime.</h1>
+            
+            <div class="form-box">
+                <form>
+                    <h2 style="color: #D35400; margin-top: 0;">Create your account</h2>
+                    
+                    <div class="form-group">
+                        <p>First name:</p>
+                        <input type="text" placeholder="Enter First Name" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <p>Last name:</p>
+                        <input type="text" placeholder="Enter Last Name" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <p>Email address</p>
+                        <input type="email" placeholder="you@example.com" />
+                    </div>
+
+                    <div class="form-group">
+                        <p>Password:</p>
+                        <input type="password" placeholder="Enter Password" />
+                        
+                        <p>Confirm Password:</p>
+                        <input type="password" placeholder="Confirm Password" />
+                    </div>
+
+                    <button type="submit" class="sign-in-btn">Sign In</button>
+                </form>
                 
-                <div class="form-group">
-                <p>Email address</p>
-                <input type="email" placeholder="you@example.com" hspace=10px />
-                </div>
-
-                <div class="form-group">
-                <p>Password:</p>
-                <input type="Password" placeholder="Enter Password" hspace=10px />
-
-                <p>Confirm Password:</p>
-		<input type="Password"
-		placeholder="Confirm Password"
-		hspace=10px/>
-                </div>
-
-                <div style="text-align:  center; margin-top: 20px;">
-                    <button type="submit" class="sign-in">
-                        Sign In
-                    </button>
-                </div>
-
-            </form>
-<br> 
-            <a href="profile.html">Already have an account? Log in</a>
-
+                <a href="profile.html" class="login-link">Already have an account? Log in</a>
+            </div>
         </div>
     </div>
 </body>
-
 </html>

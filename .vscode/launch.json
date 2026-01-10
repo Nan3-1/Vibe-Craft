@@ -8,7 +8,13 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open sign in.html",
-            "file": "c:\\Users\\User\\source\\sign-in-form\\sign in.html"
+            "file": "${workspaceFolder}/sign in.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open main page.html",
+            "file": "${workspaceFolder}/main page.html"
         }
     ]
 }

@@ -10,6 +10,7 @@
             "name": "Open sign in.html",
             "file": "${workspaceFolder}/sign in.html"
         },
+        
         {
             "type": "chrome",
             "request": "launch",

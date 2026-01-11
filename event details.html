@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>Event Details | Vibe Craft</title>
+    <style>
+        body {
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION - Shared across your site */
+        nav {
+            display: flex;
+            padding: 15px 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        /* SPLIT SCREEN LAYOUT */
+        .split-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* LEFT SIDE: INSPIRATION PHOTO */
+        .left-image {
+            flex: 0.8; /* Slightly smaller photo side */
+            background-image: linear-gradient(rgba(211, 84, 0, 0.2), rgba(26, 35, 126, 0.2)), url('something.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* RIGHT SIDE: THE DETAILED FORM */
+        .right-form {
+            flex: 1.2;
+            padding: 60px 8%;
+            background: #fff;
+        }
+
+        h1 {
+            color: #D35400; /* Your Brand Orange */
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .instruction-text {
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* FORM STYLING */
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #0044FF; /* Your Brand Blue */
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #0044FF;
+            outline: none;
+            background-color: #f0f4ff;
+        }
+
+        /* BUTTON STYLE - Matches your Sign-In button */
+        .submit-btn {
+            background-color: #0044FF;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1A237E; /* Deep Indigo on hover */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="main page.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="sign-in.html">Profile</a>
+    </nav>
+
+    <div class="split-container">
+        <div class="left-image"></div>
+
+        <div class="right-form">
+            <h1>Tell us about your Moment.</h1>
+            <p class="instruction-text">Provide your details below, and our system will generate a custom planning template just for you.</p>
+            
+            <form action="template-result.html">
+                <div class="form-section">
+                    <label>What are we celebrating?</label>
+                    <select required>
+                        <option value="">Select Event Type</option>
+                        <option value="birthday">Birthday Party</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Gala</option>
+                        <option value="other">Other Special Occasion</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; gap: 20px;">
+                    <div class="form-section" style="flex: 1;">
+                        <label>Expected Guests</label>
+                        <input type="number" placeholder="e.g. 50">
+                    </div>
+                    <div class="form-section" style="flex: 1;">
+                        <label>Event Date</label>
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label>Describe the 'Vibe' or Theme</label>
+                    <textarea rows="3" placeholder="e.g. Modern, Minimalist, Tropical, or Vintage..."></textarea>
+                </div>
+
+                <div class="form-section">
+                    <label>Estimated Budget Range</label>
+                    <select>
+                        <option value="low">Standard (Budget Friendly)</option>
+                        <option value="mid">Premium (Custom Details)</option>
+                        <option value="high">Luxury (Full Service)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Generate My Template</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

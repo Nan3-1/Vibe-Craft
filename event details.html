@@ -38,22 +38,26 @@
 
         /* LEFT SIDE: INSPIRATION PHOTO */
         .left-image {
-            flex: 0.8; /* Slightly smaller photo side */
-            background-image: linear-gradient(rgba(211, 84, 0, 0.2), rgba(26, 35, 126, 0.2)), url('something.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            flex: 1; /* Makes the sidebar thinner as you requested */
+            background-color: #fff; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-
+        .sidebar-logo {
+            width: 100%;
+            height: auto;
+        }
         /* RIGHT SIDE: THE DETAILED FORM */
         .right-form {
-            flex: 1.2;
-            padding: 60px 8%;
+            flex: 1;
+            padding: 20px 8%;
             background: #fff;
         }
 
         h1 {
-            color: #D35400; /* Your Brand Orange */
+            color: #2F2F2F ;
             font-size: 32px;
             margin-bottom: 10px;
         }
@@ -71,7 +75,7 @@
 
         label {
             display: block;
-            color: #0044FF; /* Your Brand Blue */
+            color: #2F2F2F; 
             font-weight: bold;
             margin-bottom: 8px;
         }
@@ -87,14 +91,14 @@
         }
 
         input:focus, select:focus, textarea:focus {
-            border-color: #0044FF;
+            border-color: #d4b963;
             outline: none;
             background-color: #f0f4ff;
         }
 
         /* BUTTON STYLE - Matches your Sign-In button */
         .submit-btn {
-            background-color: #0044FF;
+            background-color:#d4b963; /* Gold */;
             color: white;
             padding: 15px 30px;
             border: none;
@@ -106,8 +110,8 @@
         }
 
         .submit-btn:hover {
-            background-color: #1A237E; /* Deep Indigo on hover */
-            transform: translateY(-2px);
+            background-color: #b5993e 
+             
         }
     </style>
 </head>
@@ -115,12 +119,16 @@
 <body>
     <nav>
         <a href="main page.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="sign-in.html">Profile</a>
+        <a href="about us.html">About us</a>
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact</a>  
     </nav>
 
     <div class="split-container">
-        <div class="left-image"></div>
+
+        <div class="left-image">
+            <img src="logo.png" alt="Vibe Craft Logo" class="sidebar-logo">
+        </div>
 
         <div class="right-form">
             <h1>Tell us about your Moment.</h1>
@@ -154,6 +162,11 @@
                     <textarea rows="3" placeholder="e.g. Modern, Minimalist, Tropical, or Vintage..."></textarea>
                 </div>
 
+                 <div class="form-section">
+                    <label>Describe the best location in which you imagine your event</label>
+                    <textarea rows="3" placeholder="e.g. Indoor, Outdoor, Beachfront, etc. and/or venue type"></textarea>
+                </div>   
+
                 <div class="form-section">
                     <label>Estimated Budget Range</label>
                     <select>
@@ -162,7 +175,7 @@
                         <option value="high">Luxury (Full Service)</option>
                     </select>
                 </div>
-
+                
                 <button type="submit" class="submit-btn">Generate My Template</button>
             </form>
         </div>

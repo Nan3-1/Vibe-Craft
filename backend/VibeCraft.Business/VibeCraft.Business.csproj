@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\VibeCraft.Data\VibeCraft.Data.csproj" />
+    <ProjectReference Include="..\VibeCraft.Models\VibeCraft.Models.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+ <ItemGroup>
+    <!-- Include all .cs files in folders -->
+    <Compile Include="Services\**\*.cs" />
+    <Compile Include="Interfaces\**\*.cs" />
+    <Compile Include="Validators\**\*.cs" />
+    
+    <!-- Include empty folders for Git -->
+    <None Include="Services\.gitkeep" />
+    <None Include="Interfaces\.gitkeep" />
+    <None Include="Validators\.gitkeep" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Include all .cs files in folders -->
+    <Compile Include="Entities\**\*.cs" />
+    <Compile Include="Enums\**\*.cs" />
+    <Compile Include="ViewModels\**\*.cs" />
+    
+    <!-- Include empty folders for Git -->
+    <None Include="Entities\.gitkeep" />
+    <None Include="Enums\.gitkeep" />
+    <None Include="ViewModels\.gitkeep" />
+  </ItemGroup>
+</Project>

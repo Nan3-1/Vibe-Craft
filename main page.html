@@ -1,22 +1,36 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title> Vibe Craft | Home </title>
-</head>
+    <meta charset="UTF-8">
+    <title>Vibe Craft | Home</title>
     <style>
+        :root {
+            --bg-flawless: #F9F4F6;
+            --plum-soft: #C28EAB;
+            --plum-pale: #A65E7E;
+            --deep-plump:#8B2D56;
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --light-gold: #f4e1d2;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
         body {
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            color: #333;
+            background-color: var(--white);
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         nav {
             display: flex;
             justify-content: flex-start;
-            padding: 20px 5%;
-            background: white;
+            padding: 25px 5%;
+            background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -28,68 +42,151 @@
             text-decoration: none;
             padding: 10px 20px;
             font-size: 18px;
+            text-transform: uppercase;
         }
 
         nav a:hover {
-            color: #357fa7;
+        color: var(--deep-plump);
         }
 
-        /* HERO SECTION - SPLIT SCREEN */
-        .hero {
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        /* SPLIT SCREEN HERO SECTION */
+        .full-screen-hero {
             display: flex;
-            height: 70vh;
+            width: 100%;
+            height: 100vh;
             align-items: center;
         }
 
-        .hero-image {
-            flex: 2;
+        /* LEFT SIDE: IMAGE */
+        .hero-image-side {
+            flex: 1.3; /* Takes up 50% */
             height: 100%;
-            background-image: url('Collage 2.png');
-            /* background-image: url('people.jfif'); */
+            background-image: url('chrysantemum.jpg');
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        
+            background-position: left;
         }
 
-        .hero-text h1 {
-            font-size: 45px;
-            color: #357fa7;
-            margin-bottom: 20px;
+        /* RIGHT SIDE: TEXT */
+        .hero-text-side {
+            flex: 1; /* Takes up 50% */
+            padding: 0 10% 0 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--white);
         }
-        .hero-text {
-            flex: 1;
-            padding: 0 5%;
+
+        .hero-content {
+            color: var(--dark);
         }
-        .template-section {
-            padding: 80px 5%;
-            background-color: #f9f9f9;
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(35px, 5vw, 60px);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .hero-content .sub-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 2vw, 24px);
+            font-style: italic;
+            color: var(--deep-plump);
+            margin-bottom: 40px;
+        }
+
+        /* MISSION SECTION */
+        .mission-section {
+            padding: 120px 15%;
             text-align: center;
+            background: #4A4446;
+            color: var(--white);
+        }
+
+        .mission-section p {
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .mission-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        /* TEMPLATE SECTION */
+        .template-section {
+            padding: 100px 5%;
+            background-color: var(--bg-flawless);
+            text-align: center;
+        }
+
+        .template-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
         }
 
         .template-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .template-box {
-            background: white;
-            border: 5px solid #357fa7;
-            border-radius: 10px;
-            padding: 30px;
-            transition: transform 0.3s ease;
+            background: var(--white);
+            border: 1px solid var(--plum-soft);
+            padding: 40px 20px;
+            transition: var(--transition);
         }
 
         .template-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--deep-plump);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
         }
 
-        .template-box h3 {
-            color: #357fa7;
-            margin-top: 0;
+        /* BUTTONS & LINKS */
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--deep-plump);
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            transition: var(--transition);
+            border: 1px solid var(--deep-plump);
+            width: fit-content;
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark);
+            color: var(--white);
+            border-color: var(--dark);
+        }
+
+        .box-link {
+            text-decoration: none;
+            color: var(--deep-plump);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--deep-plump);
+            padding-bottom: 5px;
         }
 
         /* FOOTER */
@@ -113,10 +210,7 @@
             min-width: 250px;
         }
 
-        .footer-section h4 {
-            color: white;
-            margin-bottom: 20px;
-        }
+        .footer-section h4 { color: white; margin-bottom: 20px; }
 
         .footer-bottom {
             text-align: center;
@@ -125,59 +219,61 @@
             color: #777;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #357fa7; 
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 15px;
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .full-screen-hero { flex-direction: column; height: auto; padding-top: 80px; }
+            .hero-image-side { height: 400px; width: 100%; }
+            .hero-text-side { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-     <a href="main page.html">Home</a>
+        <a href="main page.html">Home</a>
         <a href="about us.html">About us</a>
         <a href="profile.html">Profile</a>
-        <a href="contact.html">Contact</a>  
+        <a href="event details.html">Start your jorney here</a>
     </nav>
 
-    <header class="hero">
-        <div class="hero-image"></div>
-        <div class="hero-text">
-            <h1>Crafting moments that last a lifetime.</h1>
-            <p>Welcome to Vibe Craft. We believe you should ride the vibe while every moment unfolds flawlessly. Through luxury planning templates and expert coordination, we create intentional experiences that feel effortless, modern, and unforgettable..</p>
-            <a href="event details.html" class="cta-button">Create your event here</a>
+    <section class="full-screen-hero">
+        <div class="hero-image-side"></div>
+
+        <div class="hero-text-side">
+            <div class="hero-content">
+                <h1>Welcome to<br>Vibe Craft.</h1>
+                <div class="sub-brand">Crafting moments that last a lifetime.</div>
+                <a href="event details.html" class="cta-button">Create your event here</a>
+            </div>
         </div>
-    </header>
+    </section>
+
+    <section class="mission-section">
+        <p style="width: 30px, background-color:var(var(--deep-plump));">
+        <h2>At <strong>Vibe Craft</strong></h2>
+        </p>
+        <p style="font-size: 24px; font-style: italic;">"We believe you should ride the vibe while every moment unfolds flawlessly. Through luxury planning templates and expert coordination, we create intentional experiences that feel effortless, modern, and unforgettable.</p>
+    </section>
 
     <section class="template-section">
         <h2>Event Templates</h2>
-        <p>Choose a starting point for your dream event</p>
+        <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 20px; color: var(--deep-plump);">Choose a starting point for your dream event</p>
         
         <div class="template-grid">
             <div class="template-box">
                 <h3>Birthdays</h3>
-                <p>From theme selection to cake ordering, we have the perfect party plan.</p>
-                <a href="#" class="cta-button">View Template</a>
+                <p>From theme selection to cake ordering, we have the perfect party plan designed for the modern host.</p>
+                <a href="#" class="box-link">View Template</a>
             </div>
             <div class="template-box">
                 <h3>Weddings</h3>
-                <p>Comprehensive checklists and vendor lists for your big day.</p>
-                <a href="#" class="cta-button">View Template</a>
+                <p>Comprehensive checklists and curated vendor lists for your big day, ensuring timeless elegance.</p>
+                <a href="#" class="box-link">View Template</a>
             </div>
             <div class="template-box">
                 <h3>Corporate</h3>
-                <p>Sleek, professional arrangements for meetings and galas.</p>
-                <a href="#" class="cta-button">View Template</a>
-            </div>
-            <div class="template-box">
-                <h3>Other Events</h3>
-                <p>Customized planning for graduations, reunions, and more.</p>
-                <a href="#" class="cta-button">View Template</a>
+                <p>Sleek, professional arrangements for meetings and galas that reflect your brand's excellence.</p>
+                <a href="#" class="box-link">View Template</a>
             </div>
         </div>
     </section>

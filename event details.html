@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <title>Event Details | Vibe Craft</title>
     <style>
+
+             :root {
+            --bg-flawless: #F9F4F6;
+            --plum-soft: #C28EAB;
+            --plum-pale: #A65E7E;
+            --deep-plump:#8B2D56;
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --light-gold: #f4e1d2;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
         body {
             font-size: 18px;
             font-family: 'Times New Roman', Times, serif;
@@ -13,21 +26,27 @@
             overflow-x: hidden;
         }
 
-        /* NAVIGATION - Shared across your site */
-        nav {
+         nav {
             display: flex;
-            padding: 15px 5%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            justify-content: flex-start;
+            padding: 25px 5%;
+            background-color: var(--white);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         nav a {
             color: #333;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+        color: var(--gold);
         }
 
         /* SPLIT SCREEN LAYOUT */
@@ -121,7 +140,7 @@
         <a href="main page.html">Home</a>
         <a href="about us.html">About us</a>
         <a href="profile.html">Profile</a>
-        <a href="contact.html">Contact</a>  
+        <a href="event details.html">Start your jorney here</a>
     </nav>
 
     <div class="split-container">
@@ -175,8 +194,9 @@
                         <option value="high">Luxury (Full Service)</option>
                     </select>
                 </div>
-                
-                <button type="submit" class="submit-btn">Generate My Template</button>
+                <a href ="sign in.html">
+                <button type="button" class="submit-btn">Generate My Template</button>
+                </a>    
             </form>
         </div>
     </div>

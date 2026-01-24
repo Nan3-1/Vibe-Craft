@@ -8,6 +8,7 @@
     --light-gold: #f4e1d2;
     --white: #ffffff;
     --glass: rgba(255, 255, 255, 0.92); /* Slightly more opaque for readability */
+    --nav-color:#333; 
     --transition: all 0.3s ease;
 }
 
@@ -37,7 +38,7 @@ nav {
 }
 
 nav a {
-    color: #333;
+    color: var(--nav-color);
     text-decoration: none;
     padding: 10px 20px;
     font-size: 18px;
@@ -63,7 +64,7 @@ nav a:hover {
 
 /* GLASS FORM - SMALLER & TIGHTER */
 .form-overlay {
-    background: var(--glass);
+    background: var(--white);
     backdrop-filter: blur(10px);
     padding: 40px;
     width: 100%;

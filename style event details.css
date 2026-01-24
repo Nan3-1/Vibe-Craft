@@ -50,17 +50,20 @@ nav a:hover {
 
 /* LEFT SIDE: INSPIRATION PHOTO */
 .left-image {
-    flex: 1; /* Makes the sidebar thinner as you requested */
-    background-color: #fff; 
+    flex: 0 0 300px; /* Prevents stretching: stays exactly 300px wide */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    padding: 40px; /* Adds space around the square */
+    background-color: #fff;
 }
 
-.sidebar-logo {
-    width: 100%;
-    height: auto;
+.left-image img {
+    width: 500px;       /* Set a fixed size */
+    height: 450px;      /* Match width to make it square */
+    object-fit: cover;  /* Prevents the image from stretching/distorting */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 /* RIGHT SIDE: THE DETAILED FORM */

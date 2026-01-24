@@ -1,9 +1,13 @@
 :root {
+    ---bg-flawless: #F9F4F6;
+    --plum-soft: #C28EAB;
+    --plum-pale: #A65E7E;
+    --deep-plump:#8B2D56;
     --gold: #c5a059;
     --dark: #1a1a1a;
+    --light-gold: #f4e1d2;
     --white: #ffffff;
-    --glass: rgba(255, 255, 255, 0.85);
-    --transition: all 0.3s ease;
+    --nav-color:#333; 
 }
 
 body, html {
@@ -43,38 +47,37 @@ nav a {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-image: url('image_b6fe7b.jpg'); 
+    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('Collage.png');
     background-size: cover;
     background-position: center;
 }
 
-/* GLASS FORM */
 .form-overlay {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 50px;
-    width: 90%;
-    max-width: 900px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    background: var(--white);
+    padding: 40px;
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     text-align: center;
-    border-radius: 2px;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-overlay h2 {
     font-size: 36px;
     color: var(--dark);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-weight: normal;
     letter-spacing: 1px;
 }
 
 /* INPUT ROW: Email / Name / Number */
 .input-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .form-group {
@@ -85,8 +88,8 @@ nav a {
     display: block;
     font-size: 12px;
     text-transform: uppercase;
-    margin-bottom: 8px;
-    color: #555;
+    margin-bottom: 10px;
+    color: var(--dark);
     letter-spacing: 1px;
 }
 
@@ -95,7 +98,7 @@ input {
     padding: 12px 0;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid var(--dark);
     font-size: 16px;
     font-family: inherit;
     transition: var(--transition);
@@ -107,7 +110,6 @@ input:focus {
     border-bottom: 1px solid var(--gold);
 }
 
-/* PASSWORD FIELD - На нов ред, по-широко */
 .password-row {
     margin-bottom: 40px;
 }

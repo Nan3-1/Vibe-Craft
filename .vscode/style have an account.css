@@ -19,7 +19,7 @@ body, html {
 nav {
     display: flex;
     justify-content: flex-start;
-    padding: 15px 5%;
+    padding: 25px 5%;
     background: white;
     position: absolute;
     top: 0;
@@ -43,28 +43,31 @@ nav a {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-image: url('image_b6fe7b.jpg'); 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('Collage.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 /* GLASS FORM */
 .form-overlay {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 50px;
-    width: 90%;
-    max-width: 900px;
+    background: var(--white);
+    padding: 40px;
+    width: 350px;
+    height: 350px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     text-align: center;
     border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-overlay h2 {
-    font-size: 36px;
+    font-size: 24px;
     color: var(--dark);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    margin-top: 0;
     font-weight: normal;
     letter-spacing: 1px;
 }
@@ -138,4 +141,8 @@ input:focus {
     font-size: 13px;
     color: #666;
     text-decoration: none;
+}
+
+.footer-link:hover {
+    color: var(--gold);
 }

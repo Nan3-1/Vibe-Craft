@@ -4,18 +4,21 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open sign in.html",
-            "file": "${workspaceFolder}/sign in.html"
+            "name": "Open main page",
+            "url": "http://localhost:8000/main page.html",
+            "webRoot": "${workspaceFolder}/.vscode"
         },
         
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open main page.html",
-            "file": "${workspaceFolder}/main page.html"
+            "name": "Open sign in",
+            "url": "http://localhost:8000/sign in.html",
+            "webRoot": "${workspaceFolder}/.vscode"
         }
     ]
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VibeCraft.Data;
 using VibeCraft.Models.Entities;
+using VibeCraft.Web.Helpers;
 
 namespace VibeCraft.Controllers
 {
@@ -116,4 +117,58 @@ namespace VibeCraft.Controllers
             return _context.Events.Any(e => e.Id == id);
         }
     }
+    
+namespace VibeCraft.Web.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EventsController : ControllerBase
+    {
+        private readonly ApplicationDbContext _context;
+
+        public EventsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        // ✨ ДОБАВИ НОВ МЕТОД С ИЗПОЛЗВАНЕ НА HELPERS
+        [HttpGet("{id}/generate-code")]
+        public async Task<IActionResult> GenerateEventCode(int id)
+        {
+            var @event = await _context.Events.FindAsync(id);
+            if (@event == null)
+                return NotFound();
+
+            // ИЗПОЛЗВАНЕ НА НАШИЯ HELPER!
+            var eventCode = CodeGenerator.GenerateEventCode(@event.EventType.ToString());
+            
+            return Ok(new
+            {
+                EventId = id,
+                GeneratedCode = eventCode,
+                Message = "Кодът е генериран успешно!"
+            });
+        }
+
+        // ✨ ДРУГ МЕТОД С ДРУГ HELPER
+        [HttpGet("{id}/parse-vibes")]
+        public async Task<IActionResult> ParseEventVibes(int id)
+        {
+            var @event = await _context.Events.FindAsync(id);
+            if (@event == null)
+                return NotFound();
+
+            // ИЗПОЛЗВАНЕ НА TEXT PARSER HELPER
+            var parsedVibes = TextParser.ParseVibeString(@event.VibeTheme);
+            
+            return Ok(new
+            {
+                EventId = id,
+                OriginalVibe = @event.VibeTheme,
+                ParsedVibes = parsedVibes,
+                VibeCount = parsedVibes.Count
+            });
+        }
+    }
+}
 }

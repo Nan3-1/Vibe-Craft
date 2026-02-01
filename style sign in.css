@@ -46,7 +46,15 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--deep-plump);
+    color: var(--gold);
+    text-decoration: none;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+    background-position: center;
+    justify-content: center;
 }
 
 /* BACKGROUND CONTAINER */
@@ -55,7 +63,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 20px;
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Collage.png');
     background-size: cover;
     background-position: center;
@@ -66,9 +74,9 @@ nav a:hover {
 .form-overlay {
     background: var(--white);
     backdrop-filter: blur(10px);
-    padding: 40px;
+    padding: 20px;
     width: 100%;
-    max-width: 500px; /* Reduced from 900px */
+    max-width: 500px; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     text-align: center;
     border-radius: 4px;
@@ -90,7 +98,7 @@ nav a:hover {
 
 .input-row {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns looks better in a small box */
+    grid-template-columns: 1fr 1fr; 
     gap: 20px;
 }
 
@@ -120,9 +128,9 @@ input:focus {
     border-bottom: 1px solid var(--gold);
 }
 
-/* CTA BUTTON */
+
 .cta-button {
-    width: 100%; /* Full width looks cleaner in small boxes */
+    width: 100%; 
     padding: 15px;
     background-color: var(--dark);
     color: white;
@@ -150,5 +158,4 @@ input:focus {
 
 .footer-link:hover {
     color: var(--gold);
-    border-bottom: 1px solid var(--gold);
 }

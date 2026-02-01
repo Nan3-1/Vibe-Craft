@@ -106,23 +106,30 @@ nav a.active {
 }
 
 .header {
-    background-color: #0d0d12;
+    background-image: url('banner (1).png');
+    background-position: center;
+    background-size: cover;
     color: white;
     padding: 40px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    size: 40px;
+    font-weight: bolder;
 }
 
 .header p {
     color: var(--white);
     margin-top: 4px;
+    size: 30px;
+    font-weight: bold;
 }
 
 .event-counter {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 12px 20px;
+    size: 12px;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -183,6 +190,7 @@ nav a.active {
     background-size: cover;
     background-position: center;
     padding: 15px;
+    background-image: url('wedding\ 1.jpg');
 }
 
 .badge {

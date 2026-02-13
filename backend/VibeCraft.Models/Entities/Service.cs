@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VibeCraft.Models.Entities
 {
-    public class Sevice
+    public class Service
     {
         [Key]
         public int Id { get; set; }

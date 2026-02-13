@@ -13,6 +13,8 @@ namespace VibeCraft.Models.Entities
         [Key]
         public int Id { get; set; }
 
+        public Service Service { get; set; }
+
         [Required]
         public int EventId { get; set; }
 

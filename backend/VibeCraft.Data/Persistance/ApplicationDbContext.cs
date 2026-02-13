@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
-namespace VibeCraft.Data.Persistance;
-
-// VibeCraft.Data/ApplicationDbContext.cs
-
-using Microsoft.EntityFrameworkCore;
+using System;
 using VibeCraft.Models.Entities;
+
 
 namespace VibeCraft.Data
 {

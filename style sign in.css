@@ -130,6 +130,8 @@ input:focus {
 
 
 .cta-button {
+    display: block;          
+    box-sizing: border-box;  
     width: 100%; 
     padding: 15px;
     background-color: var(--dark);
@@ -141,6 +143,7 @@ input:focus {
     letter-spacing: 1px;
     transition: 0.3s;
     margin-top: 15px;
+    text-align: center;      
 }
 
 .cta-button:hover {

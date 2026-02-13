@@ -1,5 +1,5 @@
 :root {
-    ---bg-flawless: #F9F4F6;
+    --bg-flawless: #F9F4F6;
     --plum-soft: #C28EAB;
     --plum-pale: #A65E7E;
     --deep-plump:#8B2D56;
@@ -8,10 +8,10 @@
     --light-gold: #f4e1d2;
     --white: #ffffff;
     --nav-color:#333; 
+    --transition: all 0.3s ease;
 }
 
 body {
-    
     margin: 0; 
     padding: 0;
     height: 100%;
@@ -44,10 +44,6 @@ nav a:hover {
     color: var(--deep-plump);
 }
 
-a {
-    color: var(--white);
-    text-decoration: none;
-}
 /* BACKGROUND CONTAINER */
 .page-wrapper {
     height: 100vh;
@@ -57,14 +53,13 @@ a {
     background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('Collage.png');
     background-size: cover;
     background-position: center;
-    scroll-behavior: smooth;
 }
 
 .form-overlay {
     background: var(--white);
-    padding: 20px;
+    padding: 40px;
     width: 350px;
-    height: 350px;
+    height: 380px; /* Slightly shorter than sign-in since there are fewer fields */
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     text-align: center;
     border-radius: 0px;
@@ -76,25 +71,19 @@ a {
 .form-overlay h2 {
     font-size: 36px;
     color: var(--dark);
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     font-weight: normal;
     letter-spacing: 1px;
 }
 
-/* INPUT ROW: Email / Name / Number */
-.input-row {
-    gap: 10px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-}
-
 .form-group {
     text-align: left;
+    margin-bottom: 25px;
 }
 
 .form-group label {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     margin-bottom: 5px;
     color: var(--dark);
@@ -103,7 +92,7 @@ a {
 
 input {
     width: 100%;
-    padding: 12px 0;
+    padding: 10px 0;
     background: transparent;
     border: none;
     border-bottom: 1px solid var(--dark);
@@ -118,28 +107,25 @@ input:focus {
     border-bottom: 1px solid var(--gold);
 }
 
-.password-row {
-    margin-bottom: 40px;
-}
-
 /* CTA BUTTON */
 .cta-button {
+    display: block;
+    box-sizing: border-box;  
     width: 100%;
-    max-width: 300px;
     padding: 15px;
     background-color: var(--dark);
-    color: white;
+    color: var(--white);
     border: none;
     font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
+    letter-spacing: 1px;
+    margin-top: 10px;
     transition: var(--transition);
+    text-decoration: none;
 }
 
 .cta-button:hover {
     background-color: var(--gold);
-    transform: translateY(-2px);
 }
 
 .footer-link {
@@ -150,6 +136,6 @@ input:focus {
     text-decoration: none;
 }
 
-.footer-link:hover{
+.footer-link:hover {
     color: var(--gold);
 }

@@ -96,7 +96,7 @@ nav a.active {
 }
 
 .header {
-    background-image: url('banner (1).png');
+    background-image: url('images/banner (1).png');
     background-position: center;
     background-size: cover;
     color: white;
@@ -181,7 +181,7 @@ nav a.active {
     background-size: cover;
     background-position: center;
     padding: 15px;
-    background-image: url('wedding\ 1.jpg');
+    background-image: url('images/wedding\ 1.jpg');
 }
 
 .badge {

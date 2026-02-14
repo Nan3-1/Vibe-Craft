@@ -57,7 +57,6 @@ h1, h2, h3 {
     align-items: center;
 }
 
-/* LEFT SIDE: IMAGE */
 .hero-image-side {
     flex: 1.3; /* Takes up 50% */
     height: 100%;
@@ -66,7 +65,6 @@ h1, h2, h3 {
     background-position: left;
 }
 
-/* RIGHT SIDE: TEXT */
 .hero-text-side {
     flex: 1; /* Takes up 50% */
     padding: 0 10% 0 5%;
@@ -91,7 +89,7 @@ h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(18px, 2vw, 24px);
     font-style: italic;
-    color: var(--deep-plump);
+    color: var(--plum-soft);
     margin-bottom: 40px;
 }
 
@@ -99,7 +97,7 @@ h1, h2, h3 {
 .mission-section {
     padding: 120px 15%;
     text-align: center;
-    background: #4A4446;
+    background: #808080;
     color: var(--white);
 }
 
@@ -122,7 +120,7 @@ h1, h2, h3 {
 /* TEMPLATE SECTION */
 .template-section {
     padding: 100px 5%;
-    background-color: var(--bg-flawless);
+    background-color: white;
     text-align: center;
 }
 
@@ -141,7 +139,7 @@ h1, h2, h3 {
 
 .template-box {
     background: var(--white);
-    border: 1px solid var(--plum-soft);
+    border: 3px solid var(--plum-soft);
     padding: 40px 20px;
     transition: var(--transition);
 }
@@ -186,7 +184,7 @@ h1, h2, h3 {
 
 /* FOOTER */
 footer {
-    background-color: #4A4446;
+    background-color: #A8A8A8;
     color: white;
     padding: 60px 5% 20px;
 }

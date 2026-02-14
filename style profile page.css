@@ -69,7 +69,7 @@ nav a {
 }
 
 nav a.active {
-    background-color: var(--dark);
+    background-color: var(--deep-plump);
     color: #ffffff;
 }
 
@@ -128,7 +128,7 @@ nav a.active {
 
 .count {
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 /* --- EVENTS SECTION --- */
@@ -148,7 +148,7 @@ nav a.active {
 }
 
 .btn-plan {
-    background-color: #0d0d12;
+    background-color: var(--deep-plump);
     color: white;
     padding: 12px 20px;
     border-radius: 10px;
@@ -166,7 +166,7 @@ nav a.active {
 }
 
 .event-card {
-    border: 1px solid #e5e7eb;
+    border: 2px solid var(--deep-plump);
     border-radius: 16px;
     overflow: hidden;
     transition: transform 0.2s;

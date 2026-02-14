@@ -9,6 +9,7 @@
     --white: #ffffff;
     --nav-color:#333; 
     --transition: all 0.3s ease;
+    --transition-color:#4A4446;;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
 nav {
     display: flex;
     justify-content: flex-start;
-    padding: 20px 5%;
+    padding: 25px 5%;
     background-color: var(--white);
     position: sticky;
     top: 0;
@@ -50,7 +51,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('Collage.png');
+    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('banner\ 2\ \(1\)\(1\).png');
     background-size: cover;
     background-position: center;
 }
@@ -104,7 +105,7 @@ input {
 
 input:focus {
     outline: none;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--deep-plump);
 }
 
 /* CTA BUTTON */
@@ -113,7 +114,7 @@ input:focus {
     box-sizing: border-box;  
     width: 100%;
     padding: 15px;
-    background-color: var(--dark);
+    background-color: var(--deep-plump);
     color: var(--white);
     border: none;
     font-size: 14px;
@@ -125,7 +126,8 @@ input:focus {
 }
 
 .cta-button:hover {
-    background-color: var(--gold);
+    transform-style: preserve-3d;
+    transform: translateY(-5px);
 }
 
 .footer-link {
@@ -137,5 +139,5 @@ input:focus {
 }
 
 .footer-link:hover {
-    color: var(--gold);
+    color: var(--deep-plump);
 }

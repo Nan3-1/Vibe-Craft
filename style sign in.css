@@ -10,6 +10,7 @@
     --glass: rgba(255, 255, 255, 0.92); /* Slightly more opaque for readability */
     --nav-color:#333; 
     --transition: all 0.3s ease;
+    --transition-color:#4A4446;;
 }
 
 body {
@@ -46,7 +47,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--gold);
+    color: var(--plum-pale);
     text-decoration: none;
 }
 
@@ -64,7 +65,7 @@ a {
     justify-content: center;
     align-items: center;
     padding: 20px 20px;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Collage.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('banner\ 2\ \(1\)\(1\).png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -125,7 +126,7 @@ input {
 
 input:focus {
     outline: none;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--deep-plump);
 }
 
 
@@ -134,7 +135,7 @@ input:focus {
     box-sizing: border-box;  
     width: 100%; 
     padding: 15px;
-    background-color: var(--dark);
+    background-color: var(--deep-plump);
     color: white;
     border: none;
     cursor: pointer;
@@ -147,7 +148,8 @@ input:focus {
 }
 
 .cta-button:hover {
-    background-color: var(--gold);
+    transform-style: preserve-3d;
+    transform: translateY(-5px);
 }
 
 .footer-link {
@@ -160,5 +162,5 @@ input:focus {
 }
 
 .footer-link:hover {
-    color: var(--gold);
+    color: var(--plum-pale);
 }

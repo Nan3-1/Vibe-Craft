@@ -39,34 +39,9 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--gold);
+    color: var(--deep-plump);
 }
 
-/* SPLIT SCREEN LAYOUT */
-.split-container {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* LEFT SIDE: INSPIRATION PHOTO */
-.left-image {
-    flex: 0 0 300px; /* Prevents stretching: stays exactly 300px wide */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px; /* Adds space around the square */
-    background-color: #fff;
-}
-
-.left-image img {
-    width: 500px;       /* Set a fixed size */
-    height: 450px;      /* Match width to make it square */
-    object-fit: cover;  /* Prevents the image from stretching/distorting */
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-/* RIGHT SIDE: THE DETAILED FORM */
 .right-form {
     flex: 1;
     padding: 20px 8%;
@@ -108,14 +83,14 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: #d4b963;
+    border-color: var(--deep-plump);
     outline: none;
     background-color: #f0f4ff;
 }
 
 /* BUTTON STYLE - Matches your Sign-In button */
 .submit-btn {
-    background-color: #d4b963;
+    background-color: var(--deep-plump);
     color: white;
     padding: 15px 30px;
     border: none;
@@ -127,5 +102,6 @@ input:focus, select:focus, textarea:focus {
 }
 
 .submit-btn:hover {
-    background-color: #b5993e;
+    transform-style: preserve-3d;
+    transform: translateY(-5px);
 }

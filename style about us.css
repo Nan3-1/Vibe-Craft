@@ -5,6 +5,7 @@
     --gold: #c5a059;
     --dark: #1a1a1a;
     --light-gold: #f4e1d2;
+    --transition-color:#FAB1E1;
     --white: #ffffff;
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -38,7 +39,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--gold);
+    color: var(--deep-plump);
 }
 
 h1, h2, h3 {
@@ -63,14 +64,15 @@ h1, h2, h3 {
 }
 
 .mission-section{
-   padding: 90px 15%;
-    background: #2D282A;
+    padding: 90px 15%;
+    background-color: var(--plum-soft);
+    /* background: #4A4446; */
     color: var(--white);
     text-align: center;
 }
 
 .mission-section h2 {
-    color: var(--gold);
+    color: var(--white);
     text-transform: uppercase;
     font-size: 25px;
     letter-spacing: 4px;
@@ -79,6 +81,7 @@ h1, h2, h3 {
 .about-text {
     flex: 0.5;
     padding: 0 8%;
+    font-size: larger;
 }
 
 .about-text h1 {
@@ -89,8 +92,8 @@ h1, h2, h3 {
 .about-text h1::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 3px;
+    width: 170px;
+    height: 5px;
     background: var(--plum-soft );
     margin-top: 15px;
 }
@@ -120,7 +123,7 @@ h1, h2, h3 {
 
 .value-box {
     padding: 60px 40px;
-    border: 5px solid var(--light-gold);
+    border: 5px solid var(--transition-color);
     transition: var(--transition);
     background: #fff;
 }
@@ -129,7 +132,7 @@ h1, h2, h3 {
     transform: scale(1.02);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     z-index: 2;
-    border-color: var(--gold);
+    border-color: var(--deep-plump);
 }
 
 .value-box h3 {
@@ -140,7 +143,7 @@ h1, h2, h3 {
 .cta-button {
     display: inline-block;
     padding: 15px 35px;
-    background-color: var(--dark);
+    background-color: var(--plum-pale);
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -148,20 +151,20 @@ h1, h2, h3 {
     font-size: 13px;
     font-weight: bold;
     transition: var(--transition);
-    border: 1px solid var(--dark);
+    border: 1px solid var(--white);
 }
 
 .cta-button:hover {
-    background-color: var(--gold);
+    background-color: var(--deep-plump);
     border-width: 1px;
-    border-color: var(--gold);
-    color: var(--dark);
+    border-color: var(--deep-plump);
+    color: var(--white);
 }
 
 /* Responsive Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -211,7 +214,8 @@ so each item acts like a small gallery with a single visible cover image. */
     text-align: center;
     background: #f9f9f9;
     font-weight: bold;
-    background: var(--gold);
+    /* background-color: #4A4446; */
+    background: var(--plum-soft);
     color: #fff;
 }
 
@@ -249,10 +253,12 @@ so each item acts like a small gallery with a single visible cover image. */
     font-size: 40px;
     cursor: pointer; 
     padding: 20px;
-    transition: 0.3s;
+    transition: 0.3s; 
+    position: absolute;
 }
 
 .nav-arrow:hover { 
+   
     color: #ccc; 
 }
 

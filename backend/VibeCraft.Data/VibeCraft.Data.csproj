@@ -16,6 +16,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -24,17 +26,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
  <ItemGroup>
-    <!-- Include all .cs files in folders -->
-    <Compile Include="Migrations\**\*.cs" />
-    <Compile Include="Repositories\**\*.cs" />
-    <Compile Include="Seeders\**\*.cs" />
-    <Compile Include="Configurations\**\*.cs" />
-    
-    <!-- Include empty folders for Git -->
-    <None Include="Migrations\.gitkeep" />
-    <None Include="Repositories\.gitkeep" />
-    <None Include="Seeders\.gitkeep" />
-    <None Include="Configurations\.gitkeep" />
+    <!-- Keep placeholders for empty folders; SDK ies .cs files -->
+    <None Include="Migrations\\.gitkeep" />
+    <None Include="Repositories\\.gitkeep" />
+    <None Include="Seeders\\.gitkeep" />
+    <None Include="Configurations\\.gitkeep" />
   </ItemGroup>
 
 </Project>

@@ -29,7 +29,7 @@ namespace VibeCraft.Models.Entities
 
         public bool IsApproved { get; set; } = false;
 
-        // Навигационни свойства
+        
         [ForeignKey("EventId")]
         public virtual Event Event { get; set; }
 

@@ -34,12 +34,12 @@ namespace VibeCraft.Models.Entities
         [MaxLength(500)]
         public string Notes { get; set; }
 
-        // Навигационни свойства
+        
         [ForeignKey("EventId")]
         public virtual Event Event { get; set; }
 
-        //[ForeignKey("ServiceId")]
-        //public virtual Service Service { get; set; }
+        [ForeignKey("ServiceId")]
+        public virtual Service ServiceDetails { get; set; }
     }
 
     public enum BookingStatus

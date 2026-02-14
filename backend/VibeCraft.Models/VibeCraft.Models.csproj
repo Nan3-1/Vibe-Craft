@@ -6,12 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <!-- Include all .cs files in folders -->
-    <Compile Include="Entities\**\*.cs" />
-    <Compile Include="Enums\**\*.cs" />
-    <Compile Include="ViewModels\**\*.cs" />
-    
-    <!-- Include empty folders for Git -->
+    <!-- Keep placeholders for empty folders; SDK implicitly includes .cs files -->
     <None Include="Entities\.gitkeep" />
     <None Include="Enums\.gitkeep" />
     <None Include="ViewModels\.gitkeep" />

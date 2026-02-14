@@ -16,15 +16,14 @@ namespace VibeCraft.Controllers
             _context = context;
         }
 
-        // 📋 GET: api/services
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Service>>> GetServices()
         {
             return await _context.Services.ToListAsync();
         }
 
-        // 🔍 GET: api/services/category/Catering
-        // ТЪРСИ ПО КАТЕГОРИЯ
+        
         [HttpGet("category/{category}")]
         public async Task<ActionResult<IEnumerable<Service>>> GetServicesByCategory(ServiceCategory category)
         {
@@ -33,8 +32,7 @@ namespace VibeCraft.Controllers
                 .ToListAsync();
         }
 
-        // 🔍 GET: api/services/available
-        // САМО НАЛИЧНИТЕ УСЛУГИ
+        
         [HttpGet("available")]
         public async Task<ActionResult<IEnumerable<Service>>> GetAvailableServices()
         {
@@ -44,7 +42,7 @@ namespace VibeCraft.Controllers
                 .ToListAsync();
         }
 
-        // ➕ POST: api/services
+        
         [HttpPost]
         public async Task<ActionResult<Service>> CreateService(Service service)
         {
@@ -54,8 +52,7 @@ namespace VibeCraft.Controllers
             return CreatedAtAction(nameof(GetServices), new { id = service.Id }, service);
         }
 
-        // 💸 GET: api/services/price-range?min=100&max=1000
-        // УСЛУГИ В ЦЕНОВ ДИАПАЗОН
+        
         [HttpGet("price-range")]
         public async Task<ActionResult<IEnumerable<Service>>> GetServicesByPriceRange(
             [FromQuery] decimal minPrice = 0, 

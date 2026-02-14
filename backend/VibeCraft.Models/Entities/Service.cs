@@ -34,7 +34,7 @@ namespace VibeCraft.Models.Entities
         [MaxLength(100)]
         public string ProviderContact { get; set; }
 
-        // Навигационни свойства
+        
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 

@@ -52,7 +52,7 @@ namespace VibeCraft.Business.Services
             _context.Events.Add(@event);
             await _context.SaveChangesAsync();
 
-            // Create budget
+            
             var budget = new Budget
             {
                 EventId = @event.Id,
@@ -64,7 +64,7 @@ namespace VibeCraft.Business.Services
 
             _context.Budgets.Add(budget);
 
-            // Add creator as owner participant
+            
             var participant = new EventParticipant
             {
                 EventId = @event.Id,
@@ -113,7 +113,7 @@ namespace VibeCraft.Business.Services
 
         public async Task<EventPlanDto> GenerateEventPlan(GenerateTemplateDto dto)
         {
-            // Find matching template
+            
             var template = await _context.Templates
                 .Where(t => t.ForEventType == (int)dto.EventType && 
                            t.VibeType.Contains(dto.VibeTheme) &&
@@ -123,7 +123,7 @@ namespace VibeCraft.Business.Services
 
             if (template == null)
             {
-                // Generate default plan based on event type and vibe
+                
                 return new EventPlanDto
                 {
                     ColorPalette = GetColorPalette(dto.VibeTheme),
@@ -167,7 +167,7 @@ namespace VibeCraft.Business.Services
 
         public async Task<bool> AddParticipant(int eventId, int userId, ParticipantRole role)
         {
-            // Check if already participant
+            
             var existing = await _context.EventParticipants
                 .FirstOrDefaultAsync(ep => ep.EventId == eventId && ep.UserId == userId);
 
@@ -200,7 +200,7 @@ namespace VibeCraft.Business.Services
             return true;
         }
 
-        // Helper methods
+        
         private decimal GetDefaultBudget(BudgetRange range, int guests)
         {
             return range switch
@@ -258,7 +258,7 @@ namespace VibeCraft.Business.Services
 
         private EventDto MapToEventDto(Event @event)
         {
-#pragma warning disable CS8601 // Possible null reference assignment.
+#pragma warning disable CS8601 
             return new EventDto
             {
                 Id = @event.Id,
@@ -310,12 +310,12 @@ namespace VibeCraft.Business.Services
                     BookingDate = b.BookingDate
                 }).ToList()
             };
-#pragma warning restore CS8601 // Possible null reference assignment.
+#pragma warning restore CS8601 
         }
 
         private UserProfileDto MapToUserProfileDto(User user)
         {
-#pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 
             return user switch
             {
                 RegularUser regular => new UserProfileDto
@@ -355,7 +355,7 @@ namespace VibeCraft.Business.Services
                 },
                 _ => null
             };
-#pragma warning restore CS8603 // Possible null reference return.
+#pragma warning restore CS8603 
         }
     }
 

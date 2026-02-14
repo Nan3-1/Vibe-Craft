@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace VibeCraft.Web.Helpers
 {
-    // ВАЛИДАЦИЯ: Проверява дали датата е в бъдещето
+    
     public class FutureDateAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -18,7 +18,7 @@ namespace VibeCraft.Web.Helpers
         }
     }
 
-    // ВАЛИДАЦИЯ: Проверява дали датата е в рамките на 2 години
+    
     public class WithinTwoYearsAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)

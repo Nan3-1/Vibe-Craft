@@ -28,7 +28,7 @@ namespace VibeCraft.Models.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        // Навигационни свойства
+        
         [ForeignKey("EventId")]
         public virtual Event Event { get; set; }
     }

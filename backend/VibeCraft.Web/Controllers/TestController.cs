@@ -16,8 +16,7 @@ namespace VibeCraft.Controllers
             _context = context;
         }
 
-        // 🧪 GET: api/test
-        // ПРОСТ ТЕСТ ЗА ПРОВЕРКА
+        
         [HttpGet]
         public IActionResult GetTest()
         {
@@ -34,8 +33,7 @@ namespace VibeCraft.Controllers
             });
         }
 
-        // 🧪 GET: api/test/db
-        // ПРОВЕРКА ДАЛИ БАЗАТА РАБОТИ
+        
         [HttpGet("db")]
         public async Task<IActionResult> TestDatabase()
         {
@@ -63,18 +61,17 @@ namespace VibeCraft.Controllers
             }
         }
 
-        // 🧪 POST: api/test/seed
-        // СЪЗДАЙ ТЕСТОВИ ДАННИ
+        
         [HttpPost("seed")]
         public async Task<IActionResult> SeedTestData()
         {
-            // Провери дали вече има данни
+            
             if (await _context.Users.AnyAsync())
             {
                 return BadRequest(new { message = "Вече има данни в базата!" });
             }
 
-            // Създай тестов потребител
+            
             var testUser = new RegularUser
             {
                 Username = "testuser",
@@ -88,7 +85,7 @@ namespace VibeCraft.Controllers
             _context.Users.Add(testUser);
             await _context.SaveChangesAsync();
 
-            // Създай тестово събитие
+            
             var testEvent = new Event
             {
                 Title = "Тестово Сватбено Тържество",

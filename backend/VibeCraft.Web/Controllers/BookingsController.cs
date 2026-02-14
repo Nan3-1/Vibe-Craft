@@ -16,7 +16,7 @@ namespace VibeCraft.Controllers
             _context = context;
         }
 
-        // 📋 GET: api/bookings
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBookings()
         {
@@ -25,8 +25,7 @@ namespace VibeCraft.Controllers
                 .ToListAsync();
         }
 
-        // 🔍 GET: api/bookings/event/5
-        // РЕЗЕРВАЦИИ ЗА СЪБИТИЕ
+        
         [HttpGet("event/{eventId}")]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBookingsForEvent(int eventId)
         {
@@ -35,13 +34,11 @@ namespace VibeCraft.Controllers
                 .ToListAsync();
         }
 
-        // ➕ POST: api/bookings
-        // НАПРАВИ РЕЗЕРВАЦИЯ
+        
         [HttpPost]
         public async Task<ActionResult<Booking>> CreateBooking(Booking booking)
         {
-            // Автоматично изчисляване на цената
-            // Може да се добави логика за изчисление
+            
             
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
@@ -49,8 +46,7 @@ namespace VibeCraft.Controllers
             return CreatedAtAction(nameof(GetBookings), new { id = booking.Id }, booking);
         }
 
-        // ✅ PUT: api/bookings/5/confirm
-        // ПОТВЪРДИ РЕЗЕРВАЦИЯ
+        
         [HttpPut("{id}/confirm")]
         public async Task<IActionResult> ConfirmBooking(int id)
         {

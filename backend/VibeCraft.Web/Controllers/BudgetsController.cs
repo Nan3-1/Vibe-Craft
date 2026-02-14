@@ -16,8 +16,7 @@ namespace VibeCraft.Controllers
             _context = context;
         }
 
-        // 💰 GET: api/budgets/event/5
-        // ВЗЕМИ БЮДЖЕТ ПО СЪБИТИЕ
+        
         [HttpGet("event/{eventId}")]
         public async Task<ActionResult<Budget>> GetBudgetForEvent(int eventId)
         {
@@ -32,8 +31,7 @@ namespace VibeCraft.Controllers
             return budget;
         }
 
-        // ➕ POST: api/budgets
-        // СЪЗДАЙ БЮДЖЕТ
+        
         [HttpPost]
         public async Task<ActionResult<Budget>> CreateBudget(Budget budget)
         {
@@ -47,8 +45,7 @@ namespace VibeCraft.Controllers
                 new { eventId = budget.EventId }, budget);
         }
 
-        // 📈 PUT: api/budgets/5/add-spent
-        // ДОБАВИ РАЗХОД КЪМ БЮДЖЕТА
+        
         [HttpPut("{id}/add-spent")]
         public async Task<IActionResult> AddSpentAmount(int id, [FromBody] decimal amount)
         {

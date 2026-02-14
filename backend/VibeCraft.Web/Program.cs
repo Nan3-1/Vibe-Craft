@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using VibeCraft.Data.Persistance;
+using VibeCraft.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +27,23 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins(
+                "http://localhost:5500",  // Live Server (най-вероятно)
+                "http://127.0.0.1:5500",  // Live Server алтернативен
+                "http://localhost:5000"   // Fallback
+                )
+                .AllowAnyMethod()          // GET, POST, PUT, DELETE
+                .AllowAnyHeader()
+                .AllowCredentials();       // за cookies/tokens
+        });
+});
+app.UseCors("AllowFrontend");
+app.UseAuthorization();
 
 app.UseHttpsRedirection();
 app.UseRouting();

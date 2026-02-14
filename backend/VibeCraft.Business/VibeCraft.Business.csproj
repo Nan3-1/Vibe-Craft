@@ -11,12 +11,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
  <ItemGroup>
-    <!-- Include all .cs files in folders -->
-    <Compile Include="Services\**\*.cs" />
-    <Compile Include="Interfaces\**\*.cs" />
-    <Compile Include="Validators\**\*.cs" />
-    
-    <!-- Include empty folders for Git -->
+    <!-- Keep placeholders for empty folders; SDK implicitly includes .cs files -->
     <None Include="Services\.gitkeep" />
     <None Include="Interfaces\.gitkeep" />
     <None Include="Validators\.gitkeep" />

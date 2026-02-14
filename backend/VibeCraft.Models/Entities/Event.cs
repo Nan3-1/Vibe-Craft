@@ -31,7 +31,7 @@ namespace VibeCraft.Models.Entities
 
         [Required]
         [MaxLength(100)]
-        public string VibeTheme { get; set; } // Modern, Minimalist, Tropical, Vintage
+        public string VibeTheme { get; set; } 
 
         [MaxLength(500)]
         public string LocationDescription { get; set; }
@@ -50,7 +50,7 @@ namespace VibeCraft.Models.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        // Навигационни свойства
+        
         [ForeignKey("CreatedById")]
         public virtual User CreatedBy { get; set; }
 
@@ -72,9 +72,9 @@ namespace VibeCraft.Models.Entities
 
     public enum BudgetRange
     {
-        Standard = 0,      // Budget Friendly
-        Premium = 1,       // Mid Range
-        Luxury = 2         // High End
+        Standard = 0,      
+        Premium = 1,       
+        Luxury = 2         
     }
 
     public enum EventStatus

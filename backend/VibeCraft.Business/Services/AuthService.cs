@@ -35,14 +35,14 @@ namespace VibeCraft.Business.Services
 
         public async Task<string> Register(RegisterDto registerDto)
         {
-            // Check if user exists
+            
             if (await _context.Users.AnyAsync(u => u.Email == registerDto.Email))
                 throw new Exception("User with this email already exists");
 
             if (await _context.Users.AnyAsync(u => u.Username == registerDto.Username))
                 throw new Exception("Username is already taken");
 
-            // Create user based on type
+            
             User newUser = registerDto.UserType switch
             {
                 "Regular" => new RegularUser

@@ -19,7 +19,7 @@ namespace VibeCraft.Models.Entities
         public string Description { get; set; }
 
         [Required]
-        public int ForEventType { get; set; } // Съответства на EventType enum
+        public int ForEventType { get; set; } 
 
         [MaxLength(100)]
         public string ColorScheme { get; set; }
@@ -35,7 +35,7 @@ namespace VibeCraft.Models.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; } = true;
 
-        // Навигационни свойства
+        
         public virtual ICollection<EventPlan> EventPlans { get; set; }
     }
 }

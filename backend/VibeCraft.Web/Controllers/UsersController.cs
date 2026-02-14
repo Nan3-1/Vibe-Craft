@@ -16,14 +16,14 @@ namespace VibeCraft.Controllers
             _context = context;
         }
 
-        // 📋 GET: api/users
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
-        // 🔍 GET: api/users/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -37,8 +37,7 @@ namespace VibeCraft.Controllers
             return user;
         }
 
-        // 🔍 GET: api/users/by-email/email@example.com
-        // ТЪРСЕНЕ ПО ИМЕЙЛ
+        
         [HttpGet("by-email/{email}")]
         public async Task<ActionResult<User>> GetUserByEmail(string email)
         {
@@ -53,11 +52,11 @@ namespace VibeCraft.Controllers
             return user;
         }
 
-        // ➕ POST: api/users
+        
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser(User user)
         {
-            // Задаване на дата на създаване
+            
             user.CreatedAt = DateTime.UtcNow;
             
             _context.Users.Add(user);
@@ -66,8 +65,7 @@ namespace VibeCraft.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        // 👤 POST: api/users/regular
-        // СЪЗДАЙ РЕГУЛЯРЕН ПОТРЕБИТЕЛ
+        
         [HttpPost("regular")]
         public async Task<ActionResult<RegularUser>> CreateRegularUser(RegularUser user)
         {
@@ -78,8 +76,7 @@ namespace VibeCraft.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        // 👤 POST: api/users/planner
-        // СЪЗДАЙ ПЛАНИРОВЧИК
+        
         [HttpPost("planner")]
         public async Task<ActionResult<EventPlannerUser>> CreatePlanner(EventPlannerUser user)
         {

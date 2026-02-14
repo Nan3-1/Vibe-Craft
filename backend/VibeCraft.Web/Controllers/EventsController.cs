@@ -6,21 +6,20 @@ using VibeCraft.Web.Helpers;
 
 namespace VibeCraft.Controllers
 {
-    // 🎯 ТОВА Е АДРЕСА: https://localhost:7226/api/events
+    
     [Route("api/[controller]")]
     [ApiController]
     public class EventsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        // 🔧 Конструктор - инжектираме базата данни
+        
         public EventsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // 📋 GET: api/events
-        // ВЗЕМИ ВСИЧКИ СЪБИТИЯ
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
@@ -30,8 +29,7 @@ namespace VibeCraft.Controllers
                 .ToListAsync();
         }
 
-        // 🔍 GET: api/events/5
-        // ВЗЕМИ ЕДНО СЪБИТИЕ ПО ID
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)
         {
@@ -48,12 +46,11 @@ namespace VibeCraft.Controllers
             return @event;
         }
 
-        // ➕ POST: api/events
-        // СЪЗДАЙ НОВО СЪБИТИЕ
+        
         [HttpPost]
         public async Task<ActionResult<Event>> CreateEvent(Event @event)
         {
-            // Автоматично сетване на дати
+            
             @event.CreatedAt = DateTime.UtcNow;
             @event.UpdatedAt = DateTime.UtcNow;
 
@@ -63,8 +60,7 @@ namespace VibeCraft.Controllers
             return CreatedAtAction(nameof(GetEvent), new { id = @event.Id }, @event);
         }
 
-        // ✏️ PUT: api/events/5
-        // ОБНОВИ СЪБИТИЕ
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEvent(int id, Event @event)
         {
@@ -95,8 +91,7 @@ namespace VibeCraft.Controllers
             return NoContent();
         }
 
-        // ❌ DELETE: api/events/5
-        // ИЗТРИЙ СЪБИТИЕ
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
@@ -131,7 +126,7 @@ namespace VibeCraft.Web.Controllers
             _context = context;
         }
 
-        // ✨ ДОБАВИ НОВ МЕТОД С ИЗПОЛЗВАНЕ НА HELPERS
+        
         [HttpGet("{id}/generate-code")]
         public async Task<IActionResult> GenerateEventCode(int id)
         {
@@ -139,7 +134,7 @@ namespace VibeCraft.Web.Controllers
             if (@event == null)
                 return NotFound();
 
-            // ИЗПОЛЗВАНЕ НА НАШИЯ HELPER!
+            
             var eventCode = CodeGenerator.GenerateEventCode(@event.EventType.ToString());
             
             return Ok(new
@@ -150,7 +145,7 @@ namespace VibeCraft.Web.Controllers
             });
         }
 
-        // ✨ ДРУГ МЕТОД С ДРУГ HELPER
+        
         [HttpGet("{id}/parse-vibes")]
         public async Task<IActionResult> ParseEventVibes(int id)
         {
@@ -158,7 +153,7 @@ namespace VibeCraft.Web.Controllers
             if (@event == null)
                 return NotFound();
 
-            // ИЗПОЛЗВАНЕ НА TEXT PARSER HELPER
+            
             var parsedVibes = TextParser.ParseVibeString(@event.VibeTheme);
             
             return Ok(new

@@ -7,21 +7,21 @@ namespace VibeCraft.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
-            // 1. Създаване на базата ако не съществува
+            
             context.Database.EnsureCreated();
 
-            // 2. Проверка дали вече има данни
+            
             if (context.Users.Any())
             {
-                return; // Базата вече има данни
+                return; 
             }
 
             Console.WriteLine("Starting database seeding...");
 
-            // 3. СЪЗДАВАНЕ НА ПОТРЕБИТЕЛИ
+            
             var users = new List<User>
             {
-                // Администратор
+                
                 new AdminUser
                 {
                     Username = "admin",
@@ -41,7 +41,7 @@ namespace VibeCraft.Data
                     LastLogin = DateTime.UtcNow
                 },
                 
-                // Организатор (от снимките)
+                
                 new EventPlannerUser
                 {
                     Username = "sarah.mitchell",
@@ -62,7 +62,7 @@ namespace VibeCraft.Data
                     CompanyName = "VibeCraft Events"
                 },
                 
-                // Обикновен потребител
+                
                 new RegularUser
                 {
                     Username = "ivan.petrov",
@@ -84,7 +84,7 @@ namespace VibeCraft.Data
             context.SaveChanges();
             Console.WriteLine("✓ Users added");
 
-            // 4. СЪЗДАВАНЕ НА УСЛУГИ
+            
             var services = new List<Service>
             {
                 new Service
@@ -123,7 +123,7 @@ namespace VibeCraft.Data
             context.SaveChanges();
             Console.WriteLine("✓ Services added");
 
-            // 5. СЪЗДАВАНЕ НА ШАБЛОНИ
+            
             var templates = new List<Template>
             {
                 new Template
@@ -156,7 +156,7 @@ namespace VibeCraft.Data
             context.SaveChanges();
             Console.WriteLine("✓ Templates added");
 
-            // 6. СЪЗДАВАНЕ НА СЪБИТИЯ
+            
             var events = new List<Event>
             {
                 new Event
@@ -171,7 +171,7 @@ namespace VibeCraft.Data
                     ActualLocation = "Rosewood Gardens, Sofia",
                     BudgetRange = BudgetRange.Premium,
                     Status = EventStatus.Confirmed,
-                    CreatedById = users[1].Id, // Sarah Mitchell
+                    CreatedById = users[1].Id, 
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow
                 },

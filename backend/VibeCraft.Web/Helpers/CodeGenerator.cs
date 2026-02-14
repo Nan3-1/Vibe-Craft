@@ -2,7 +2,7 @@ namespace VibeCraft.Web.Helpers
 {
     public static class CodeGenerator
     {
-        // Генерира код за събитие
+        
         public static string GenerateEventCode(string eventType)
         {
             var prefix = eventType switch

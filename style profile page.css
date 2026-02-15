@@ -47,7 +47,7 @@ body {
 }
 
 .icon-box {
-    background: var(--dark);
+    background: var(--white);
     color: white;
     padding: 8px;
     border-radius: 8px;
@@ -179,7 +179,7 @@ nav a.active {
 
 .image-container {
     width: 100%;
-    height: 120px;
+    height: 200px;
     object-fit: cover;
     display: block;
     border-bottom: 1px solid var(--plum-soft);
@@ -203,6 +203,19 @@ nav a.active {
 
 .card-content {
     padding: 20px;
+}
+
+.btn-additional-changes{
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 25px;
+    background-color: var(--plum-pale);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
 }
 
 .card-content h3 {
@@ -302,18 +315,21 @@ nav a.active {
 }
 
 .modal-image {
-    flex: 0.8;
+    flex: 1;
+    min-width: 0;
     height: 500px;
     object-fit: cover;
     width: 100%;
 }
 
 .modal-info {
-    flex: 1.5;
-    padding: 40px;
+    flex: 1;
+    min-width: 0;
+    padding: 20px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    width: auto;
 }
 
 .modal-header {
@@ -340,6 +356,8 @@ nav a.active {
     font-weight: bold;
     color: white;
     white-space: nowrap;
+    transform: translateX(-40px);
+    transition: transform 0.18s ease;
 }
 
 .modal-badge.confirmed {

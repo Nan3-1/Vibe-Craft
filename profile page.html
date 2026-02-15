@@ -56,10 +56,9 @@
                 </div>
 
                 <div class="event-grid">
-                    <div class="event-card">
-                        <div class="image-container" style="background-image: url('images/wedding 5.jpg');">
-                            <span class="badge confirmed">Confirmed</span>
-                        </div>
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="images/wedding 5.jpg" alt="Elegant Garden Wedding" class="image-container">
+                        <div class="badge confirmed">Confirmed</div>
                         <div class="card-content">
                             <h3>Elegant Garden Wedding</h3>
                             <p class="location">Rosewood Garden...</p>
@@ -69,12 +68,19 @@
                                 <span>Classic Vibe</span>
                             </div>
                         </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Rosewood Garden, Malibu</p>
+                            <p><strong>Time:</strong> 4:00 PM - 11:00 PM</p>
+                            <p><strong>Services:</strong> Catering, Decoration, Photography</p>
+                            <p><strong>Budget:</strong> $12,000</p>
+                            <p><strong>Description:</strong> An elegant outdoor garden wedding with classic floral arrangements and intimate dining setup for 150 guests.</p>
+                        </div>
                     </div>
 
-                    <div class="event-card">
-                        <div class="image-container" style="background-image: url('images/corporate\ 1.jpg');">
-                            <span class="badge pending">Pending</span>
-                        </div>
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="images/corporate 1.jpg" alt="Corporate Annual Gala" class="image-container">
+                        <div class="badge pending">Pending</div>
                         <div class="card-content">
                             <h3>Corporate Annual Gala</h3>
                             <p class="location">Grand Plaza Convention...</p>
@@ -84,12 +90,19 @@
                                 <span>Professional Vibe</span>
                             </div>
                         </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Grand Plaza Convention Center, Downtown</p>
+                            <p><strong>Time:</strong> 6:00 PM - 10:30 PM</p>
+                            <p><strong>Services:</strong> Audio/Visual, Catering, Security</p>
+                            <p><strong>Budget:</strong> $25,000</p>
+                            <p><strong>Description:</strong> A professional corporate gala with keynote speakers, networking areas, and fine dining for 300 business professionals.</p>
+                        </div>
                     </div>
 
-                    <div class="event-card">
-                        <div class="image-container" style="background-image: url('images/concerts 1.jpg');">
-                            <span class="badge declined">Declined</span>
-                        </div>
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="images/concerts 1.jpg" alt="Summer Music Fest" class="image-container">
+                        <div class="badge declined">Declined</div>
                         <div class="card-content">
                             <h3>Summer Music Fest</h3>
                             <p class="location">Central Park...</p>
@@ -99,11 +112,76 @@
                                 <span>Energetic Vibe</span>
                             </div>
                         </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Central Park Amphitheater</p>
+                            <p><strong>Time:</strong> 2:00 PM - 9:00 PM</p>
+                            <p><strong>Services:</strong> Stage Setup, Sound System, Lighting</p>
+                            <p><strong>Budget:</strong> $40,000</p>
+                            <p><strong>Description:</strong> A vibrant outdoor music festival featuring multiple artists, food vendors, and entertainment for 500+ attendees.</p>
+                        </div>
                     </div>
 
-                </div> </section>
+                </div>
+
+                <!-- Event Modal -->
+                <div id="eventModal" class="event-modal">
+                    <div class="event-modal-content">
+                        <span class="close-modal" onclick="closeEventModal()">&times;</span>
+                        <div class="modal-body" id="modalBody"></div>
+                    </div>
+                </div>
+
+            </section>
         </main>
     </div>
 
+    <script src="script.js"></script>
+    <script>
+        function openEventModal(card) {
+            const modal = document.getElementById('eventModal');
+            const modalBody = document.getElementById('modalBody');
+            const cardContent = card.querySelector('.card-content');
+            const eventDetails = card.querySelector('.event-details');
+            const img = card.querySelector('.image-container');
+            const badge = card.querySelector('.badge');
+            
+            // Build modal content
+            let html = `
+                <img src="${img.src}" alt="${img.alt}" class="modal-image">
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <h2>${cardContent.querySelector('h3').innerText}</h2>
+                        <span class="modal-badge ${badge.className.replace('badge ', '')}">${badge.innerText}</span>
+                    </div>
+                    <div class="modal-details">
+                        ${eventDetails.innerHTML}
+                    </div>
+                </div>
+            `;
+            
+            modalBody.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        function closeEventModal() {
+            document.getElementById('eventModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('eventModal');
+            if (e.target === modal) {
+                closeEventModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeEventModal();
+            }
+        });
+    </script>
 </body>
 </html>

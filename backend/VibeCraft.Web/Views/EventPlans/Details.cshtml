@@ -1,0 +1,136 @@
+@model VibeCraft.Models.ViewModels.EventPlanDetailsViewModel
+
+@{
+    ViewData["Title"] = $"Plan for {Model.EventTitle}";
+}
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Event Plans</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.EventTitle</li>
+        </ol>
+    </nav>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Event Plan Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h3>@Model.EventTitle</h3>
+                        <p class="text-muted">
+                            <i class="bi bi-calendar"></i> @Model.EventDate.ToString("MMMM dd, yyyy hh:mm tt")<br />
+                            <i class="bi bi-tag"></i> @Model.EventType
+                        </p>
+                    </div>
+
+
+                    <div class="row mt-4">
+                        <div class="col-sm-6">
+                            <dl class="row">
+                                <dt class="col-sm-5">Generated At:</dt>
+                                <dd class="col-sm-7">@Model.GeneratedAt.ToString("MMM dd, yyyy hh:mm tt")</dd>
+                            </dl>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.TemplateName))
+                        {
+                            <div class="col-sm-6">
+                                <dl class="row">
+                                    <dt class="col-sm-5">Template:</dt>
+                                    <dd class="col-sm-7">@Model.TemplateName</dd>
+                                </dl>
+                                @if (!string.IsNullOrEmpty(Model.TemplateDescription))
+                                {
+                                    <p class="text-muted small">@Model.TemplateDescription</p>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <div class="mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil"></i> Edit Plan
+                        </a>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to List
+                        </a>
+                        <a asp-controller="Events" asp-action="Details" asp-route-id="@Model.EventId" class="btn btn-info">
+                            <i class="bi bi-calendar-event"></i> View Event
+                        </a>
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <i class="bi bi-trash"></i> Delete Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Plan Summary</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Event
+                            <span class="badge bg-primary rounded-pill">@Model.EventTitle</span>
+                        </li
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">
+                            <i class="bi bi-pencil"></i> Edit Plan
+                        </a>
+                        <a asp-controller="Events" asp-action="Details" asp-route-id="@Model.EventId" class="btn btn-outline-primary">
+                            <i class="bi bi-calendar-event"></i> View Event
+                        </a>
+                        <a asp-action="Create" class="btn btn-outline-success">
+                            <i class="bi bi-plus-circle"></i> Create Another Plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the plan for "<strong>@Model.EventTitle</strong>"? This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display: inline;">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

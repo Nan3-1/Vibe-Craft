@@ -12,23 +12,11 @@ namespace VibeCraft.Data.Configurations
         {
             // Основна таблица
             builder.ToTable("Users");
-            
-            // Дискриминатор за наследяване
-            builder.HasDiscriminator<string>("UserType")
-                .HasValue<RegularUser>("Regular")
-                .HasValue<EventPlannerUser>("Planner")
-                .HasValue<AdminUser>("Admin");
+    
             
             // Уникални полета
-            builder.HasIndex(u => u.Username).IsUnique();
+            builder.HasIndex(u => u.UserName).IsUnique();
             builder.HasIndex(u => u.Email).IsUnique();
-            
-            // Стойности по подразбиране
-            builder.Property(u => u.CreatedAt)
-                .HasDefaultValueSql("GETUTCDATE()");
-            
-            builder.Property(u => u.IsActive)
-                .HasDefaultValue(true);
         }
     }
 }

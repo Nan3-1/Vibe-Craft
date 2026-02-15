@@ -10,32 +10,23 @@ namespace VibeCraft.Models.Entities
     {
         [Key]
         public int Id { get; set; }
-
-        [Required]
-        [MaxLength(150)]
-        public string Name { get; set; }
-
-        [MaxLength(500)]
-        public string Description { get; set; }
-
+        
         [Required]
         public int ForEventType { get; set; } 
 
-        [MaxLength(100)]
-        public string ColorScheme { get; set; }
+        [Required]
+        public DateTime? DateTime { get; set; } 
+        
+        [Required]
+        public required string Guest {get; set;}
 
         [MaxLength(50)]
-        public string VibeType { get; set; }
+        public required string VibeType { get; set; }
 
-        public bool IsPremium { get; set; } = false;
-
-        [Range(0, 10000)]
-        public decimal BasePrice { get; set; } = 0.00m;
-
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public bool IsActive { get; set; } = true;
-
+        [MaxLength(500)]
+        public required string Description { get; set; }
+        public required string BudgetRange { get; set; }
         
-        public virtual ICollection<EventPlan> EventPlans { get; set; }
+        public required virtual ICollection<EventPlan> EventPlans { get; set; }
     }
 }

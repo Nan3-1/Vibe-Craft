@@ -17,10 +17,10 @@ namespace VibeCraft.Models.Entities
         public string Title { get; set; }
 
         [MaxLength(1000)]
-        public string Description { get; set; }
+        public  string Description { get; set; }
 
         [Required]
-        public EventType EventType { get; set; }
+        public EventType EventType {get; set;}
 
         [Required]
         public DateTime EventDate { get; set; }
@@ -31,58 +31,17 @@ namespace VibeCraft.Models.Entities
 
         [Required]
         [MaxLength(100)]
-        public string VibeTheme { get; set; } 
+        public  string VibeTheme { get; set; } 
 
         [MaxLength(500)]
-        public string LocationDescription { get; set; }
+        public  string LocationDescription { get; set; }
 
-        [MaxLength(300)]
-        public string ActualLocation { get; set; }
 
         [Required]
         public BudgetRange BudgetRange { get; set; }
 
         public EventStatus Status { get; set; } = EventStatus.Planning;
 
-        [Required]
-        public int CreatedById { get; set; }
-
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-
-        
-        [ForeignKey("CreatedById")]
-        public virtual User CreatedBy { get; set; }
-
-        public virtual EventPlan EventPlan { get; set; }
-        public virtual Budget Budget { get; set; }
-        public virtual ICollection<EventParticipant> Participants { get; set; }
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual ICollection<Review> Reviews { get; set; }
-    }
-
-    public enum EventType
-    {
-        Wedding = 0,
-        CorporateMeeting = 1,
-        BirthdayParty = 2,
-        ConcertFestival = 3,
-        Other = 4
-    }
-
-    public enum BudgetRange
-    {
-        Standard = 0,      
-        Premium = 1,       
-        Luxury = 2         
-    }
-
-    public enum EventStatus
-    {
-        Planning = 0,
-        Confirmed = 1,
-        Completed = 2,
-        Cancelled = 3
     }
     
 }

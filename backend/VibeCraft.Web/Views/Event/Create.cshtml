@@ -1,0 +1,86 @@
+@model VibeCraft.Models.ViewModels.CreateEventViewModel
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Create New Event</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="EventType" class="form-label"></label>
+                                <select asp-for="EventType" class="form-select" asp-items="Html.GetEnumSelectList<EventType>()">
+                                    <option value="">Select Event Type</option>
+                                </select>
+                                <span asp-validation-for="EventType" class="text-danger"></span>
+                            </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="EventDate" class="form-label"></label>
+                                <input asp-for="EventDate" class="form-control" type="datetime-local" />
+                                <span asp-validation-for="EventDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ExpectedGuests" class="form-label"></label>
+                                <input asp-for="ExpectedGuests" class="form-control" type="number" min="1" />
+                                <span asp-validation-for="ExpectedGuests" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="VibeTheme" class="form-label"></label>
+                            <input asp-for="VibeTheme" class="form-control" placeholder="e.g., Tropical, Minimalist, Vintage" />
+                            <span asp-validation-for="VibeTheme" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LocationDescription" class="form-label"></label>
+                            <input asp-for="LocationDescription" class="form-control" placeholder="Describe the ideal location" />
+                            <span asp-validation-for="LocationDescription" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Create Event
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

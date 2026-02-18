@@ -22,7 +22,7 @@ body {
 nav {
     display: flex;
     justify-content: flex-start;
-    padding: 25px 5%;
+    padding: 15px 5%;
     background-color: var(--white);
     position: sticky;
     top: 0;
@@ -44,7 +44,7 @@ nav a:hover {
 
 .right-form {
     flex: 1;
-    padding: 20px 8%;
+    padding: 10px 20%;
     background: #fff;
 }
 
@@ -56,7 +56,7 @@ h1 {
 
 .instruction-text {
     color: #666;
-    margin-bottom: 30px;
+    margin-bottom: 10px 30px;
     font-style: italic;
 }
 

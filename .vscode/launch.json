@@ -5,16 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "node",
             "request": "launch",
-            "name": "Open sign in.html",
-            "file": "${workspaceFolder}/sign in.html"
+            "name": "Launch Server",
+            "program": "${workspaceFolder}/server.js",
+            "restart": true,
+            "console": "integratedTerminal"
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open main page.html",
-            "file": "${workspaceFolder}/main page.html"
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8000",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "start-server"
         }
     ]
 }

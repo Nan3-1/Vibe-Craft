@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Planning Profile | VibeCraft</title>
+    <link rel="stylesheet" href="style profile page.css">
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="icon-box">📅</div> 
+                <div>
+                    <stronger>VibeCraft</stronger><br>
+                    <strong>Event Planners</strong>
+                </div>
+            </div>
+
+            <nav>
+                <a href="main page.html">Home</a>
+                <a href="about us.html">About us</a>
+                <a href="profile.html" class="active">Profile</a>
+            </nav>
+
+            <div class="user-profile-bottom">
+                <div>
+                    <strong>Sarah Mitchell</strong><br>
+                    <small>Premium Member</small>
+                </div>
+            </div>
+            <a href="main page.html" class="logout">↪ Log out</a>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div>
+                    <h1>Event Planning Profile</h1>
+                    <p>Welcome back, Sarah</p>
+                </div>
+                <div class="event-counter">
+                    <div>
+                        <span class="count">4</span><br>
+                        <small>Total Events</small>
+                    </div>
+                </div>
+            </header>
+
+            <section class="events-section">
+                <div class="section-header">
+                    <div>
+                        <h2> Customize Your Events</h2>
+                        <p>All your planned events with details, services, and ideas</p>
+                    </div>
+                    <a href="event details.html" class="btn-plan">+ Plan Another Event</a>
+                </div>
+
+                <div class="event-grid">
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="images/wedding 5.jpg" alt="Elegant Garden Wedding" class="image-container">
+                        <div class="badge confirmed">Confirmed</div>
+                        <div class="card-content">
+                            <h3>Elegant Garden Wedding</h3>
+                            <p class="location">Rosewood Garden...</p>
+                            <p class="date">June 15, 2026</p>
+                            <div class="card-footer">
+                                <span>150 guests</span>
+                                <span>Classic Vibe</span>
+                            </div>
+                        </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Rosewood Garden, Malibu</p>
+                            <p><strong>Time:</strong> 4:00 PM - 11:00 PM</p>
+                            <p><strong>Services:</strong> Catering, Decoration, Photography</p>
+                            <p><strong>Budget:</strong> $12,000</p>
+                            <p><strong>Description:</strong> An elegant outdoor garden wedding with classic floral arrangements and intimate dining setup for 150 guests.</p>
+                            <a href="event details.html" type="button" class="btn-additional-changes">+ Request Additional Changes</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="images/corporate 1.jpg" alt="Corporate Annual Gala" class="image-container">
+                        <div class="badge pending">Pending</div>
+                        <div class="card-content">
+                            <h3>Corporate Annual Gala</h3>
+                            <p class="location">Grand Plaza Convention...</p>
+                            <p class="date">August 20, 2026</p>
+                            <div class="card-footer">
+                                <span>300 guests</span>
+                                <span>Professional Vibe</span>
+                            </div>
+                        </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Grand Plaza Convention Center, Downtown</p>
+                            <p><strong>Time:</strong> 6:00 PM - 10:30 PM</p>
+                            <p><strong>Services:</strong> Audio/Visual, Catering, Security</p>
+                            <p><strong>Budget:</strong> $25,000</p>
+                            <p><strong>Description:</strong> A professional corporate gala with keynote speakers, networking areas, and fine dining for 300 business professionals.</p>
+                              <a href="event details.html" type="button" class="btn-additional-changes">+ Request Additional Changes</a>       
+                        </div>
+                    </div>
+
+                        <div class="event-card" onclick="openEventModal(this)">
+    <img src="images/corporate 3.jpg" alt="Nexus AI Software Launch" class="image-container">
+    <div class="badge pending">Pending</div>
+    <div class="card-content">
+        <h3> Nexus AI Software Launch</h3>
+        <p class="location"> Innovation Tech Hub</p>
+        <p class="date"> September 15, 2026</p>
+        <div class="card-footer">
+            <span> 150 guests</span>
+            <span> High-Tech & Sleek</span>
+        </div>
+    </div>
+    <div class="event-details" style="display: none;">
+        <h4>Event Details</h4>
+        <p><strong>Venue:</strong> Innovation Tech Hub, Main Auditorium</p>
+        <p><strong>Time:</strong> 2:00 PM - 5:00 PM</p>
+        <p><strong>Services:</strong> Live Demo Setup, PR Agency, Refreshments, Live Stream</p>
+        <p><strong>Budget:</strong> $12,000</p>
+        <p><strong>Description:</strong> Formal product unveiling for investors and media, featuring a live technical demo, Q&A session, and cocktail networking.</p>
+        <a href="event details.html" type="button" class="btn-additional-changes">+ Request Additional Changes</a>        
+    </div>
+</div>
+
+                        <div class="event-card" onclick="openEventModal(this)">
+    <img src="images/birthday 1.jpg" alt="Golden Jubilee Celebration" class="image-container">
+    <div class="badge declined">Declined</div>
+    <div class="card-content">
+        <h3> Golden Jubilee Celebration</h3>
+        <p class="location"> Rooftop Lounge & Garden</p>
+        <p class="date"> June 22, 2026</p>
+        <div class="card-footer">
+            <span> 80 guests</span>
+            <span> Sophisticated & Chic</span>
+        </div>
+    </div>
+    <div class="event-details" style="display: none;">
+        <h4>Event Details</h4>
+        <p><strong>Venue:</strong> Rooftop Lounge & Garden, Sky Tower</p>
+        <p><strong>Time:</strong> 7:00 PM - 12:00 AM</p>
+        <p><strong>Services:</strong> Jazz Band, Gourmet Catering, Sommelier, Valet Parking</p>
+        <p><strong>Budget:</strong> $8,500</p>
+        <p><strong>Description:</strong> An elegant 50th birthday celebration featuring a live jazz quartet, a curated wine tasting experience, and a formal black-tie dinner.</p>
+        <a href="event details.html" type="button" class="btn-additional-changes">+ Request Additional Changes</a>        
+    </div>
+</div>
+
+                            <div class="event-card" onclick="openEventModal(this)">
+    <img src="images/corporate 2.jpg" alt="10 Years of Excellence Gala" class="image-container">
+    <div class="badge confirmed">Confirmed</div>
+    <div class="card-content">
+        <h3>10 Years of Excellence Gala</h3>
+        <p class="location"> The Royal Ballroom</p>
+        <p class="date"> November 05, 2026</p>
+        <div class="card-footer">
+            <span> 500 guests</span>
+            <span>Elegant & Festive</span>
+        </div>
+    </div>
+    <div class="event-details" style="display: none;">
+        <h4>Event Details</h4>
+        <p><strong>Venue:</strong> The Royal Ballroom, Seaside Resort</p>
+        <p><strong>Time:</strong> 7:30 PM - 01:00 AM</p>
+        <p><strong>Services:</strong> Live Band, Premium Open Bar, Awards Ceremony, Decor</p>
+        <p><strong>Budget:</strong> $45,000</p>
+        <p><strong>Description:</strong> A grand celebration of the company's 10th anniversary, including employee awards, a short documentary screening, and a 4-course dinner.</p>
+        <a href="event details.html" type="button" class="btn-additional-changes">+ Request Additional Changes</a>        
+    </div>
+</div>
+                        
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="images/concerts 1.jpg" alt="Summer Music Fest" class="image-container">
+                        <div class="badge declined">Declined</div>
+                        <div class="card-content">
+                            <h3>Summer Music Fest</h3>
+                            <p class="location">Central Park...</p>
+                            <p class="date">July 10, 2026</p>
+                            <div class="card-footer">
+                                <span>500+ guests</span>
+                                <span>Energetic Vibe</span>
+                            </div>
+                        </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Central Park Amphitheater</p>
+                            <p><strong>Time:</strong> 2:00 PM - 9:00 PM</p>
+                            <p><strong>Services:</strong> Stage Setup, Sound System, Lighting</p>
+                            <p><strong>Budget:</strong> $40,000</p>
+                            <p><strong>Description:</strong> A vibrant outdoor music festival featuring multiple artists, food vendors, and entertainment for 500+ attendees.</p>
+                            <a href="event details.html" type="button" class="btn-additional-changes">+ Request Additional Changes</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+                <!-- Event Modal -->
+                <div id="eventModal" class="event-modal">
+                    <div class="event-modal-content">
+                        <span class="close-modal" onclick="closeEventModal()">&times;</span>
+                        <div class="modal-body" id="modalBody"></div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function openEventModal(card) {
+            const modal = document.getElementById('eventModal');
+            const modalBody = document.getElementById('modalBody');
+            const cardContent = card.querySelector('.card-content');
+            const eventDetails = card.querySelector('.event-details');
+            const img = card.querySelector('.image-container');
+            const badge = card.querySelector('.badge');
+            
+            // Build modal content
+            let html = `
+                <img src="${img.src}" alt="${img.alt}" class="modal-image">
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <h2>${cardContent.querySelector('h3').innerText}</h2>
+                        <span class="modal-badge ${badge.className.replace('badge ', '')}">${badge.innerText}</span>
+                    </div>
+                    <div class="modal-details">
+                        ${eventDetails.innerHTML}
+                    </div>
+                </div>
+            `;
+            
+            modalBody.innerHTML = html;
+            modal.style.display = 'block';
+
+            // Ensure dynamically inserted link forwards correctly (fallback)
+            const modalLink = modalBody.querySelector('.btn-additional-changes');
+            if (modalLink) {
+                modalLink.addEventListener('click', (evt) => {
+                    // allow normal navigation but also provide a direct fallback
+                    evt.stopPropagation();
+                    window.location.href = modalLink.getAttribute('href');
+                });
+            }
+        }
+
+        function closeEventModal() {
+            document.getElementById('eventModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('eventModal');
+            if (e.target === modal) {
+                closeEventModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeEventModal();
+            }
+        });
+    </script>
+</body>
+</html>

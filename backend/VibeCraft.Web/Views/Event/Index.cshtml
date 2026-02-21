@@ -1,0 +1,112 @@
+@model IEnumerable<VibeCraft.Models.ViewModels.EventViewModel>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Events</h1>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Create New Event
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="col">
+            <div class="btn-group" role="group">
+                <a asp-action="Index" class="btn btn-outline-primary @(ViewBag.CurrentStatus == null ? "active" : "")">All</a>
+                <a asp-action="ByStatus" asp-route-status="Planning" class="btn btn-outline-primary @(ViewBag.CurrentStatus == "Planning" ? "active" : "")">Planning</a>
+                <a asp-action="ByStatus" asp-route-status="Confirmed" class="btn btn-outline-primary @(ViewBag.CurrentStatus == "Confirmed" ? "active" : "")">Confirmed</a>
+                <a asp-action="ByStatus" asp-route-status="Completed" class="btn btn-outline-primary @(ViewBag.CurrentStatus == "Completed" ? "active" : "")">Completed</a>
+                <a asp-action="ByStatus" asp-route-status="Cancelled" class="btn btn-outline-primary @(ViewBag.CurrentStatus == "Cancelled" ? "active" : "")">Cancelled</a>
+            </div>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No events found. <a asp-action="Create">Create your first event!</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-transparent">
+                            <span class="badge @(GetStatusBadgeClass(item.Status))">@item.Status</span>
+                            <span class="badge bg-secondary float-end">@item.EventType</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <i class="bi bi-calendar"></i> @item.EventDate.ToString("MMM dd, yyyy hh:mm tt")
+                            </h6>
+                            <p class="card-text">
+                                <i class="bi bi-people"></i> @item.ExpectedGuests guests<br />
+                                <i class="bi bi-palette"></i> @item.VibeTheme<br />
+                                @if (!string.IsNullOrEmpty(item.LocationDescription))
+                                {
+                                    <i class="bi bi-geo-alt"></i> @Truncate(item.LocationDescription, 30)
+                                }
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                
+                                <div class="btn-group">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
+                                        <i class="bi bi-eye"></i> Details
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@functions {
+    private string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "Planning" => "bg-primary",
+            "Confirmed" => "bg-success",
+            "Completed" => "bg-secondary",
+            "Cancelled" => "bg-danger",
+            _ => "bg-info"
+        };
+    }
+
+    private string Truncate(string value, int maxLength)
+    {
+        if (string.IsNullOrEmpty(value)) return value;
+        return value.Length <= maxLength ? value : value.Substring(0, maxLength) + "...";
+    }
+}

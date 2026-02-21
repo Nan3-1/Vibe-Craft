@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\VibeCraft.Data\VibeCraft.Data.csproj" />
+    <ProjectReference Include="..\VibeCraft.Models\VibeCraft.Models.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+ <ItemGroup>
+    <!-- Keep placeholders for empty folders; SDK implicitly includes .cs files -->
+    <None Include="Services\.gitkeep" />
+    <None Include="Interfaces\.gitkeep" />
+    <None Include="Validators\.gitkeep" />
+  </ItemGroup>
+ <ItemGroup>
+     <PackageReference Include="AutoMapper" Version="14.0.0" />
+ </ItemGroup>
+
+</Project>

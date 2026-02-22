@@ -1,0 +1,57 @@
+@using VibeCraft.Web
+@using VibeCraft.Web.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Sign in | Vibe Craft";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style sign in.css">
+</head>
+
+<body>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="About">About us</a>
+        <a asp-controller="Profile" asp-action="Index">Profile</a>
+        <a asp-controller="Event" asp-action="Create">Start your journey here</a>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="form-overlay">
+            <h2>Create account</h2>
+            
+            <form asp-action="Register" method="post">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="Email" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="FullName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="PhoneNumber" placeholder="+359..." required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="Password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="cta-button">Sign in</button>
+            </form>
+
+            <a asp-controller="Account" asp-action="Login" class="footer-link">Already have an account? Log in</a>
+        </div>
+    </div>
+</body>
+</html>

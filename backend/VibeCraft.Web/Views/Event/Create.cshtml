@@ -1,86 +1,71 @@
-@model VibeCraft.Models.ViewModels.CreateEventViewModel
-
 @{
-    ViewData["Title"] = "Create Event";
+    ViewData["Title"] = "Event Details | Vibe Craft";
 }
 
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">Create New Event</h4>
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style event details.css">
+</head>
+
+<body>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="About">About us</a>
+        <a asp-controller="Account" asp-action="Login">Profile</a>
+        <a asp-controller="Event" asp-action="Create">Start your journey here</a>
+    </nav>
+    
+    <div class="right-form">
+        <h1>Tell us about your Moment.</h1>
+        <p class="instruction-text">Provide your details below, and our system will generate a custom planning template just for you.</p>
+        
+        <form asp-action="Create" method="post">
+            <div class="form-section">
+                <label>What are we celebrating?</label>
+                <select name="EventType" required>
+                    <option value="">Select Event Type</option>
+                    <option value="birthday">Birthday Party</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="corporate">Corporate Gala</option>
+                    <option value="other">Other Special Occasion</option>
+                </select>
+            </div>
+
+            <div style="display: flex; gap: 20px;">
+                <div class="form-section" style="flex: 1;">
+                    <label>Expected Guests</label>
+                    <input type="number" name="ExpectedGuests" placeholder="e.g. 50">
                 </div>
-                <div class="card-body">
-                    <form asp-action="Create" method="post">
-                        @Html.AntiForgeryToken()
-                        
-                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
-                        <div class="mb-3">
-                            <label asp-for="Title" class="form-label"></label>
-                            <input asp-for="Title" class="form-control" />
-                            <span asp-validation-for="Title" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Description" class="form-label"></label>
-                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="EventType" class="form-label"></label>
-                                <select asp-for="EventType" class="form-select" asp-items="Html.GetEnumSelectList<EventType>()">
-                                    <option value="">Select Event Type</option>
-                                </select>
-                                <span asp-validation-for="EventType" class="text-danger"></span>
-                            </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="EventDate" class="form-label"></label>
-                                <input asp-for="EventDate" class="form-control" type="datetime-local" />
-                                <span asp-validation-for="EventDate" class="text-danger"></span>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="ExpectedGuests" class="form-label"></label>
-                                <input asp-for="ExpectedGuests" class="form-control" type="number" min="1" />
-                                <span asp-validation-for="ExpectedGuests" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="VibeTheme" class="form-label"></label>
-                            <input asp-for="VibeTheme" class="form-control" placeholder="e.g., Tropical, Minimalist, Vintage" />
-                            <span asp-validation-for="VibeTheme" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="LocationDescription" class="form-label"></label>
-                            <input asp-for="LocationDescription" class="form-control" placeholder="Describe the ideal location" />
-                            <span asp-validation-for="LocationDescription" class="text-danger"></span>
-                        </div>
-
-
-                        <div class="d-flex justify-content-between">
-                            <a asp-action="Index" class="btn btn-secondary">
-                                <i class="bi bi-arrow-left"></i> Back to List
-                            </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-save"></i> Create Event
-                            </button>
-                        </div>
-                    </form>
+                <div class="form-section" style="flex: 1;">
+                    <label>Event Date</label>
+                    <input type="date" name="EventDate">
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            <div class="form-section">
+                <label>Describe the 'Vibe' or Theme</label>
+                <textarea name="VibeTheme" rows="3" placeholder="e.g. Modern, Minimalist, Tropical, or Vintage..."></textarea>
+            </div>
+
+            <div class="form-section">
+                <label>Describe the best location in which you imagine your event</label>
+                <textarea name="LocationDescription" rows="3" placeholder="e.g. Indoor, Outdoor, Beachfront, etc. and/or venue type"></textarea>
+            </div>   
+
+            <div class="form-section">
+                <label>Estimated Budget Range</label>
+                <select name="BudgetRange">
+                    <option value="low">Standard (Budget Friendly)</option>
+                    <option value="mid">Premium (Custom Details)</option>
+                    <option value="high">Luxury (Full Service)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="submit-btn">Generate My Template</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -96,7 +96,7 @@ nav a.active {
 }
 
 .header {
-    background-image: url('images/banner (1).png');
+    background-image: url('~/images/banner (1).png');
     background-position: center;
     background-size: cover;
     color: white;

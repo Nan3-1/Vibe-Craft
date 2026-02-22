@@ -12,9 +12,6 @@ namespace VibeCraft.Controllers
     /// <summary>
     /// Controller for managing templates
     /// </summary>
-    [ApiController]
-    [Route("api/[controller]")]
-    [Authorize] // Require authentication for all endpoints
     public class TemplateController : ControllerBase
     {
         private readonly ITemplateService _templateService;

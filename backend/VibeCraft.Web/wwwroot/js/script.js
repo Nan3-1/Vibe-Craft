@@ -34,10 +34,8 @@ function changeImage(step) {
   updateModal();
 }
 
-// Close on outside click
 window.onclick = (e) => { if (e.target == modal) closeModal(); };
 
-// Keyboard support
 document.addEventListener('keydown', (e) => {
   if (modal.style.display === 'block') {
     if (e.key === 'ArrowLeft') changeImage(-1);

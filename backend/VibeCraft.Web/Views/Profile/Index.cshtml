@@ -3,6 +3,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Event Planning Profile | VibeCraft";
+    Layout = null; // Add this to prevent layout errors
 }
 
 <!DOCTYPE html>
@@ -12,28 +13,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/style profile page.css">
 </head>
-<header class="header">
-    <div>
-        <h1>Event Planning Profile</h1>
-        <p>Welcome back, @ViewBag.FullName</p>
-    </div>
-    <div class="event-counter">
-        <div>
-            <span class="count">0</span><br>
-            <small>Total Events</small>
-        </div>
-    </div>
-</header>
-
-<!-- Add this after the header to show user details -->
-<div style="background: white; padding: 20px; margin: 20px 60px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-    <h3>Account Information</h3>
-    <p><strong>Name:</strong> @ViewBag.FullName</p>
-    <p><strong>Email:</strong> @ViewBag.Email</p>
-    <p><strong>Phone:</strong> @ViewBag.Phone</p>
-</div>
 <body>
-
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
@@ -52,26 +32,38 @@
 
             <div class="user-profile-bottom">
                 <div>
-                    <strong>Sarah Mitchell</strong><br>
+                    <strong>@ViewBag.FirstName @ViewBag.LastName</strong><br>
                     <small>Premium Member</small>
                 </div>
             </div>
-            <a asp-controller="Account" asp-action="Logout" class="logout">↪ Log out</a>
+            
+            <!-- Fixed logout form -->
+            <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                <button type="submit" class="logout" style="background: none; border: none; cursor: pointer; color: #666;">↪ Log out</button>
+            </form>
         </aside>
 
         <main class="main-content">
             <header class="header">
                 <div>
                     <h1>Event Planning Profile</h1>
-                    <p>Welcome back, Sarah</p>
+                    <p>Welcome back, @ViewBag.FirstName</p>
                 </div>
                 <div class="event-counter">
-                <div>
-                    <span class="count">@ViewBag.EventsCount</span><br>
-                    <small>Total Events</small>
+                    <div>
+                        <span class="count">@ViewBag.EventsCount</span><br>
+                        <small>Total Events</small>
+                    </div>
                 </div>
-</div>
             </header>
+
+            <!-- User info section -->
+            <div style="background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3>Account Information</h3>
+                <p><strong>Name:</strong> @ViewBag.FullName</p>
+                <p><strong>Email:</strong> @ViewBag.Email</p>
+                <p><strong>Phone:</strong> @ViewBag.Phone</p>
+            </div>
 
             <section class="events-section">
                 <div class="section-header">
@@ -107,7 +99,52 @@
                         </div>
                     </div>
 
-                    <!-- Add all other event cards similarly with updated image paths -->
+                    <!-- Add more event cards as needed -->
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="~/images/corporate 5.jpg" alt="Corporate Gala" class="image-container">
+                        <div class="badge planning">Planning</div>
+                        <div class="card-content">
+                            <h3>Corporate Gala</h3>
+                            <p class="location">Grand Hotel...</p>
+                            <p class="date">September 20, 2026</p>
+                            <div class="card-footer">
+                                <span>200 guests</span>
+                                <span>Modern Vibe</span>
+                            </div>
+                        </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Grand Hotel, Downtown</p>
+                            <p><strong>Time:</strong> 7:00 PM - 12:00 AM</p>
+                            <p><strong>Services:</strong> Catering, Entertainment, AV Equipment</p>
+                            <p><strong>Budget:</strong> $25,000</p>
+                            <p><strong>Description:</strong> Annual corporate gala with networking opportunities and entertainment.</p>
+                            <a asp-controller="Event" asp-action="Create" class="btn-additional-changes">+ Request Additional Changes</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card" onclick="openEventModal(this)">
+                        <img src="~/images/birthday 5.jpg" alt="Birthday Bash" class="image-container">
+                        <div class="badge completed">Completed</div>
+                        <div class="card-content">
+                            <h3>Birthday Bash</h3>
+                            <p class="location">Beach House...</p>
+                            <p class="date">March 10, 2026</p>
+                            <div class="card-footer">
+                                <span>50 guests</span>
+                                <span>Fun Vibe</span>
+                            </div>
+                        </div>
+                        <div class="event-details" style="display: none;">
+                            <h4>Event Details</h4>
+                            <p><strong>Venue:</strong> Beach House, Santa Monica</p>
+                            <p><strong>Time:</strong> 3:00 PM - 8:00 PM</p>
+                            <p><strong>Services:</strong> Catering, DJ, Photography</p>
+                            <p><strong>Budget:</strong> $5,000</p>
+                            <p><strong>Description:</strong> Fun beach-themed birthday party with games and music.</p>
+                            <a asp-controller="Event" asp-action="Create" class="btn-additional-changes">+ Request Additional Changes</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Event Modal -->

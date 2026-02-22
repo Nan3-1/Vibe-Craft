@@ -29,13 +29,14 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins(
-                "http://localhost:5500",  // Live Server (най-вероятно)
-                "http://127.0.0.1:5500",  // Live Server алтернативен
-                "http://localhost:5000"   // Fallback
+                "http://localhost:5500",
+                "http://127.0.0.1:5500",
+                "http://localhost:5000",
+                "https://localhost:5001"  // Added HTTPS
                 )
-                .AllowAnyMethod()          // GET, POST, PUT, DELETE
+                .AllowAnyMethod()
                 .AllowAnyHeader()
-                .AllowCredentials();       // за cookies/tokens
+                .AllowCredentials();
         });
 });
 
@@ -49,26 +50,30 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-app.UseCors("AllowFrontend");
-app.UseAuthorization();
-
 app.UseHttpsRedirection();
+
+// IMPORTANT: Order matters - Static files first
+app.UseStaticFiles();  // This serves files from wwwroot
+
+// Optional: If you want to serve default files like index.html
+// app.UseDefaultFiles();  // Comment this out if it causes issues with MVC
+
+app.UseCors("AllowFrontend");
+
 app.UseRouting();
 
+app.UseAuthentication();  // Add this if you're using authentication
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
+// Map routes
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapRazorPages()
-   .WithStaticAssets();
+app.MapRazorPages();
 
-app.Run();
+// Run the app - only call this once!
+app.Run("http://localhost:5000");

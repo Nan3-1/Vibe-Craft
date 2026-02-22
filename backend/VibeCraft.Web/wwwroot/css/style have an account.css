@@ -51,7 +51,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('images/banner 2 (1)(1).png');
+    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('~/images/banner 2 (1)(1).png');
     background-size: cover;
     background-position: center;
 }

@@ -1,0 +1,87 @@
+@using VibeCraft.Web
+@using VibeCraft.Web.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+    ViewData["Title"] = "Event Created | Vibe Craft";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style main page.css">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .success-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .event-details {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+        }
+        .event-details p {
+            margin: 10px 0;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: var(--deep-plump, #8B2D56);
+            color: white;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/Home/About">About us</a>
+        <a href="/Profile/Index">Profile</a>
+        <a href="/Event/Create">Start your journey here</a>
+    </nav>
+
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h1>Event Created Successfully!</h1>
+        <p>Your event has been saved. Here's what you told us:</p>
+        
+        <div class="event-details">
+            <p><strong>Event Type:</strong> @TempData["EventType"]</p>
+            <p><strong>Expected Guests:</strong> @TempData["Guests"]</p>
+            <p><strong>Vibe/Theme:</strong> @TempData["Theme"]</p>
+        </div>
+        
+        <p>We'll generate a custom template for you shortly.</p>
+        
+        <div>
+            <a href="/Event/Create" class="btn btn-secondary">Create Another Event</a>
+            <a href="/Profile/Index" class="btn btn-primary">Go to Profile</a>
+        </div>
+    </div>
+</body>
+</html>

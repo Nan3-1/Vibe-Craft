@@ -43,5 +43,5 @@ Whether it’s the vibrant glow of a birthday or the elegant deep tones of a wed
 <hr />
 
 <div align="center">
-  &copy; 2026 Vibe Craft. All rights reserved. [cite: 28]
+  &copy; 2026 Vibe Craft. All rights reserved. 
 </div>

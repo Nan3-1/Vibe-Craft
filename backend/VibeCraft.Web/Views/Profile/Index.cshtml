@@ -101,8 +101,8 @@
 
                     <!-- Add more event cards as needed -->
                     <div class="event-card" onclick="openEventModal(this)">
-                        <img src="~/images/corporate 5.jpg" alt="Corporate Gala" class="image-container">
-                        <div class="badge planning">Planning</div>
+                        <img src="~/images/corporate 4.jpg" alt="Corporate Gala" class="image-container">
+                        <div class="badge planning">Pending</div>
                         <div class="card-content">
                             <h3>Corporate Gala</h3>
                             <p class="location">Grand Hotel...</p>
@@ -124,8 +124,8 @@
                     </div>
 
                     <div class="event-card" onclick="openEventModal(this)">
-                        <img src="~/images/birthday 5.jpg" alt="Birthday Bash" class="image-container">
-                        <div class="badge completed">Completed</div>
+                        <img src="~/images/birthday 4.jpg" alt="Birthday Bash" class="image-container">
+                        <div class="badge completed">confirmed</div>
                         <div class="card-content">
                             <h3>Birthday Bash</h3>
                             <p class="location">Beach House...</p>
@@ -135,6 +135,7 @@
                                 <span>Fun Vibe</span>
                             </div>
                         </div>
+
                         <div class="event-details" style="display: none;">
                             <h4>Event Details</h4>
                             <p><strong>Venue:</strong> Beach House, Santa Monica</p>
@@ -145,6 +146,80 @@
                             <a asp-controller="Event" asp-action="Create" class="btn-additional-changes">+ Request Additional Changes</a>
                         </div>
                     </div>
+
+                    <div class="event-card" onclick="openEventModal(this)">
+    <img src="~/images/corporate-gala.jpg" alt="Corporate Gala" class="image-container">
+    <div class="badge upcoming">declined</div>
+    <div class="card-content">
+        <h3>Tech Connect Gala</h3>
+        <p class="location">Grand Ballroom, Sofia...</p>
+        <p class="date">May 20, 2026</p>
+        <div class="card-footer">
+            <span>200 guests</span>
+            <span>Professional</span>
+        </div>
+    </div>
+    
+    <div class="event-details" style="display: none;">
+        <h4>Event Details</h4>
+        <p><strong>Venue:</strong> Grand Ballroom, Grand Hotel Sofia</p>
+        <p><strong>Time:</strong> 7:00 PM - 11:00 PM</p>
+        <p><strong>Services:</strong> Live Band, Open Bar, Keynote Speakers</p>
+        <p><strong>Budget:</strong> $15,000</p>
+        <p><strong>Description:</strong> Annual networking event for tech innovators and investors.</p>
+        <a asp-controller="Event" asp-action="Create" class="btn-additional-changes">+ Request Additional Changes</a>
+    </div>
+</div>
+
+        <div class="event-card" onclick="openEventModal(this)">
+    <img src="~/images/wedding-sample.jpg" alt="Wedding Celebration" class="image-container">
+    <div class="badge in-progress">confirmed</div>
+    <div class="card-content">
+        <h3>Elena & Ivan's Wedding</h3>
+        <p class="location">Vineyard Estate...</p>
+        <p class="date">June 15, 2026</p>
+        <div class="card-footer">
+            <span>120 guests</span>
+            <span>Romantic</span>
+        </div>
+    </div>
+    
+    <div class="event-details" style="display: none;">
+        <h4>Event Details</h4>
+        <p><strong>Venue:</strong> Seven Generations Winery</p>
+        <p><strong>Time:</strong> 4:00 PM - 02:00 AM</p>
+        <p><strong>Services:</strong> Full Catering, Floral Design, Video Production</p>
+        <p><strong>Budget:</strong> $25,000</p>
+        <p><strong>Description:</strong> Elegant outdoor wedding ceremony followed by a rustic dinner reception.</p>
+        <a asp-controller="Event" asp-action="Create" class="btn-additional-changes">+ Request Additional Changes</a>
+    </div>
+</div>
+
+        <div class="event-card" onclick="openEventModal(this)">
+    <img src="~/images/charity-football.jpg" alt="Charity Football" class="image-container">
+    <div class="badge completed">Confirmed</div>
+    <div class="card-content">
+        <h3>Goals for Good</h3>
+        <p class="location">City Stadium...</p>
+        <p class="date">February 12, 2026</p>
+        <div class="card-footer">
+            <span>500+ spectators</span>
+            <span>Energetic</span>
+        </div>
+    </div>
+    
+    <div class="event-details" style="display: none;">
+        <h4>Event Details</h4>
+        <p><strong>Venue:</strong> Vasil Levski National Stadium (Sector A)</p>
+        <p><strong>Time:</strong> 10:00 AM - 2:00 PM</p>
+        <p><strong>Services:</strong> Security, Medical Team, Merchandising Booths</p>
+        <p><strong>Budget:</strong> $3,500</p>
+        <p><strong>Description:</strong> Charity football match raising funds for local youth sports programs.</p>
+        <a asp-controller="Event" asp-action="Create" class="btn-additional-changes">+ Request Additional Changes</a>
+    </div>
+</div>
+
+
                 </div>
 
                 <!-- Event Modal -->

@@ -59,18 +59,18 @@ h1, h2, h3 {
 }
 
 .hero-image-side {
-    flex: 0.4;
+    flex: 1;
     height: 100vh;
-    width: 100%;
+    min-width: 300px;
     display: flex;
-    background-image: url('~/images/chrysantemum.jpg');
-    background-size: cover; 
-    background-position: left;
+    background-image: url('/images/chrysantemum.jpg');
+    background-size: 130%;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
 .hero-text-side {
-    flex: 1.6; /* Takes up 50% */
+    flex: 1;
     padding: 0 10% 0 5%;
     display: flex;
     flex-direction: column;

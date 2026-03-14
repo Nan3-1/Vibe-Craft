@@ -17,7 +17,9 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddDefaultUI()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddRazorPages();
+
+ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<IEventPlanService, EventPlanService>();
@@ -76,4 +78,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 // Run the app - only call this once!
-app.Run("http://localhost:5000");
+app.Run();
